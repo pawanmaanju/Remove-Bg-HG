@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Background Remover</title>
+    <style>
+      /* General Reset */
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        color: #333;
+      }
+
+      /* Container */
+      .container {
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 12px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 500px;
+        width: 100%;
+      }
+
+      /* Buttons */
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 12px 24px;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        font-weight: 500;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #0056b3;
+      }
+
+      /* Hide Elements Initially */
+      #uploadedImage,
+      #processedImage,
+      #downloadButton,
+      #loading {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Background Remover</h1>
+      <p>Upload an image to automatically remove its background</p>
+      <input type="file" id="imageUpload" accept="image/*" />
+      <div id="imageContainer">
+        <img id="uploadedImage" src="#" alt="Uploaded Image" />
+        <img id="processedImage" src="#" alt="Processed Image" />
+      </div>
+      <button id="downloadButton">Download Processed Image</button>
+      <div id="loading">Processing...</div>
+      
+      <!-- Razorpay Payment Button -->
+      <form>
+        <script src="https://checkout.razorpay.com/v1/payment-button.js" data-payment_button_id="pl_Q5vYHIdfsJEXxx" async> </script>
+      </form>
+    </div>
+    <script>
+      document.getElementById("imageUpload").addEventListener("change", function (event) {
+        const file = event.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            document.getElementById("uploadedImage").src = e.target.result;
+            document.getElementById("uploadedImage").style.display = "block";
+            removeBackground(file);
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+
+      function removeBackground(file) {
+        const apiKey = "kxeMvaaag9EcAiyAVpPYxj8t"; // Replace with your Remove.bg API key
+        const formData = new FormData();
+        formData.append("image_file", file);
+        formData.append("size", "auto");
+
+        document.getElementById("loading").style.display = "block";
+
+        fetch("https://api.remove.bg/v1.0/removebg", {
+          method: "POST",
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+          body: formData,
+        })
+          .then((response) => response.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            document.getElementById("processedImage").src = url;
+            document.getElementById("processedImage").style.display = "block";
+            document.getElementById("downloadButton").style.display = "block";
+            document.getElementById("loading").style.display = "none";
+
+            document.getElementById("downloadButton").onclick = function () {
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "no-background.png";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            };
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("loading").style.display = "none";
+            alert("Error removing background. Please try again.");
+          });
+      }
+    </script>
+  </body>
+</html>
