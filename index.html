@@ -11,6 +11,7 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <style>
       :root {
         --primary-color: #117964;
@@ -371,11 +372,11 @@
         height: auto;
       }
 
-      /* Footer */
+      /* ========== FOOTER ========== */
       footer {
-        background-color: var(--dark-color);
+        background: linear-gradient(135deg, var(--dark-color), #1a2a3a);
         color: white;
-        padding: 3rem 0;
+        padding: 4rem 0 0;
         margin-top: 4rem;
       }
 
@@ -385,14 +386,18 @@
         margin: 0 auto;
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 2rem;
+        gap: 3rem;
+      }
+
+      .footer-column {
+        margin-bottom: 2rem;
       }
 
       .footer-column h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
         margin-bottom: 1.5rem;
         position: relative;
-        padding-bottom: 0.5rem;
+        padding-bottom: 0.8rem;
       }
 
       .footer-column h3::after {
@@ -400,9 +405,14 @@
         position: absolute;
         bottom: 0;
         left: 0;
-        width: 40px;
-        height: 2px;
-        background-color: var(--primary-color);
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 3px;
       }
 
       .footer-column ul {
@@ -410,32 +420,129 @@
       }
 
       .footer-column ul li {
-        margin-bottom: 0.8rem;
+        margin-bottom: 1rem;
       }
 
       .footer-column a {
-        color: #bbb;
+        color: #d1d5db;
         text-decoration: none;
         transition: var(--transition);
+        display: inline-block;
       }
 
       .footer-column a:hover {
         color: white;
-        padding-left: 5px;
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
       }
 
       .copyright {
-        text-align: center;
-        padding-top: 2rem;
-        margin-top: 2rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
         font-size: 0.9rem;
         color: #bbb;
+        margin-bottom: 1rem;
       }
 
       .copyright a {
         color: var(--primary-color);
         font-weight: 600;
+        text-decoration: none;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-links a {
+        color: #bbb;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .newsletter {
+        margin-top: 1.5rem;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .newsletter h4 {
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .newsletter-form {
+        display: flex;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 30px 0 0 30px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .newsletter-form button {
+        padding: 0 1.5rem;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        border: none;
+        border-radius: 0 30px 30px 0;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .newsletter-form button:hover {
+        opacity: 0.9;
       }
 
       /* Responsive styles */
@@ -715,47 +822,85 @@
       </div>
     </div>
 
-    <!-- Footer -->
-    <footer>
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Tutorials</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Resources</h3>
-          <ul>
-            <li><a href="#">Help Center</a></li>
-            <li><a href="#">API Documentation</a></li>
-            <li><a href="#">Privacy Policy</a></li>
-            <li><a href="#">Terms of Service</a></li>
-          </ul>
-        </div>
-
-        <div class="footer-column">
-          <h3>Connect With Us</h3>
-          <ul>
-            <li><a href="#">Twitter</a></li>
-            <li><a href="#">Facebook</a></li>
-            <li>
-              <a href="https://www.instagram.com/pawanmaanju_29">Instagram</a>
-            </li>
-            <li><a href="#">Contact Support</a></li>
-          </ul>
-        </div>
+   <!-- Footer -->
+   <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Tools</a></li>
+          <li><a href="#">Tutorials</a></li>
+          <li><a href="removebg.html">Remove Background</a></li>
+          <li><a href="ai-enhance.html">AI Enhance</a></li>
+        </ul>
       </div>
 
-      <div class="copyright">
-        &copy; 2025 HGIC Tools. All rights reserved. Created by
-        <a href="https://www.instagram.com/pawanmaanju_29">Pawan Bishnoi</a>
+      <div class="footer-column">
+        <h3>Resources</h3>
+        <ul>
+          <li><a href="#">Help Center</a></li>
+          <li><a href="#">API Documentation</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+          <li><a href="#">Terms of Service</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
       </div>
-    </footer>
+
+      <div class="footer-column">
+        <h3>Company</h3>
+        <ul>
+          <li><a href="#">About HGIC</a></li>
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-column">
+        <h3>Connect With Us</h3>
+        <ul>
+          <li><i class="fas fa-envelope"></i> support@hgictools.com</li>
+          <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
+          <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</li>
+        </ul>
+        
+        <div class="social-links">
+          <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+          <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="https://www.instagram.com/pawanmaanju_29" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+
+        <div class="newsletter">
+          <h4>Subscribe to our newsletter</h4>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required>
+            <button type="submit"><i class="fas fa-paper-plane"></i></button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="footer-container">
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+          <a href="#">GDPR</a>
+        </div>
+        <div class="copyright">
+          &copy; 2025 HGIC Tools. All rights reserved. Created by
+          <a href="https://www.instagram.com/pawanmaanju_29">Pawan Bishnoi</a>
+        </div>
+      </div>
+    </div>
+  </footer>
 
     <script>
       // Slider functionality
