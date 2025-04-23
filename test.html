@@ -2,12 +2,11 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HGIC Tools - Professional Background Removal</title>
+    <title>Background Remover | HGIC Tools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
       :root {
         --primary-color: #117964;
@@ -21,12 +20,10 @@
         --transition: all 0.3s ease-in-out;
       }
 
-      *,
-      *::after,
-      *::before {
+      * {
         box-sizing: border-box;
-        padding: 0;
         margin: 0;
+        padding: 0;
       }
 
       body {
@@ -34,9 +31,9 @@
         line-height: 1.6;
         color: var(--text-color);
         background-color: #f9f9f9;
-        overflow-x: hidden;
       }
 
+      /* Navbar Styles */
       .navbar {
         box-shadow: var(--shadow);
         position: fixed;
@@ -70,7 +67,6 @@
         transform: translateY(-50%);
         height: 50px;
         width: auto;
-      
         transition: var(--transition);
       }
 
@@ -117,237 +113,136 @@
       /* Main content area */
       .main-content {
         padding-top: 100px;
-        max-width: 1200px;
+        min-height: calc(100vh - 200px);
+      }
+
+      /* Container */
+      .container {
+        background-color: #fff;
+        padding: 2rem;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
+        text-align: center;
+        max-width: 600px;
         width: 90%;
-        margin: 0 auto;
+        margin: 2rem auto;
       }
 
-      /* Slider styles */
-      .slider-container {
-        margin: 2rem 0;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      }
-
-      .slider {
-        position: relative;
-        overflow: hidden;
-        border-radius: 12px;
-      }
-
-      .slides {
-        display: flex;
-        transition: transform 0.5s ease-in-out;
-      }
-
-      .slide {
-        min-width: 100%;
-      }
-
-      .slide img {
-        width: 100%;
-        /* height: 300px; */
-        object-fit: cover;
-        display: block;
-      }
-
-      .nav-buttons {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        transform: translateY(-50%);
-        padding: 0 20px;
-      }
-
-      .nav-buttons button {
-        background-color: rgba(255, 255, 255, 0.7);
+      /* Typography */
+      h1 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+        font-weight: 600;
         color: var(--dark-color);
-        border: none;
-        font-size: 1.5rem;
-        width: 50px;
-        height: 50px;
-        border-radius: 50%;
+      }
+
+      h3 {
+        margin: 1.5rem 0 1rem;
+        font-size: 1.25rem;
+        color: var(--dark-color);
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+        font-size: 1rem;
+      }
+
+      /* Drag & Drop Area */
+      .upload-area {
+        border: 2px dashed var(--primary-color);
+        border-radius: 8px;
+        padding: 1.5rem;
+        margin-bottom: 1.5rem;
         cursor: pointer;
         transition: var(--transition);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: var(--shadow);
       }
 
-      .nav-buttons button:hover {
-        background-color: white;
-        transform: scale(1.1);
+      .upload-area:hover {
+        border-color: var(--secondary-color);
+        background-color: rgba(0, 123, 255, 0.05);
       }
 
-      /* Section heading */
-      .section-heading {
-        text-align: center;
-        margin: 4rem 0 2rem;
-        position: relative;
+      .upload-area p {
+        margin: 0.5rem 0;
+        color: var(--primary-color);
+        font-size: 1rem;
       }
 
-      .section-heading h1 {
-        font-family: 'Raleway', sans-serif;
-        font-weight: 600;
-        font-size: 2.5rem;
-        color: var(--dark-color);
-        margin-bottom: 1rem;
+      /* File Input */
+      input[type="file"] {
+        display: none;
       }
 
-      .section-heading .subtitle {
+      /* Buttons */
+      button {
+        background-color: var(--primary-color);
+        color: #fff;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 8px;
+        cursor: pointer;
         font-size: 1rem;
         font-weight: 500;
-        text-transform: uppercase;
-        letter-spacing: 3px;
-        color: var(--text-light);
-        display: block;
-        margin-bottom: 1.5rem;
-      }
-
-      .section-heading::after {
-        content: '';
-        display: block;
-        width: 80px;
-        height: 4px;
-        background: linear-gradient(to right, var(--primary-color), var(--accent-color));
-        margin: 0 auto;
-        border-radius: 2px;
-      }
-
-      /* Cards grid */
-      .tools-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      /* Card styles */
-      .card {
-        background: white;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: var(--shadow);
         transition: var(--transition);
-        position: relative;
-      }
-
-      .card:hover {
-        transform: translateY(-10px);
-        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-      }
-
-      .card-media {
-        position: relative;
-        overflow: hidden;
-      }
-
-      .card video, .card img {
         width: 100%;
-        height: 100px;
-        object-fit: cover;
-        display: block;
-        transition: var(--transition);
+        max-width: 200px;
+        margin: 0.5rem auto;
       }
 
-      .card:hover video, .card:hover img {
-        transform: scale(1.05);
+      button:hover {
+        background-color: var(--secondary-color);
       }
 
-      .rainbow-bottom {
-        position: relative;
-      }
-
-      .rainbow-bottom::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(90deg, 
-          red, orange, yellow, green, blue, indigo, violet);
-        background-size: 200% 100%;
-        animation: rainbowAnim 3s linear infinite;
-      }
-
-      @keyframes rainbowAnim {
-        0% { background-position: 0% 50%; }
-        100% { background-position: 100% 50%; }
-      }
-
-      .card-content {
-        padding: 1.5rem;
-      }
-
-      .card-title {
-        font-size: 1.3rem;
-        margin-bottom: 0.75rem;
-        color: var(--dark-color);
-        font-weight: 600;
-      }
-
-      .card-description {
-        font-size: 0.95rem;
-        color: var(--text-light);
+      /* Image Container */
+      #imageContainer {
         margin-bottom: 1.5rem;
       }
 
-      .card-button {
-        display: inline-block;
-        padding: 0.6rem 1.5rem;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 30px;
-        text-decoration: none;
-        font-weight: 500;
-        transition: var(--transition);
-        border: 2px solid var(--primary-color);
-      }
-
-      .card-button:hover {
-        background-color: transparent;
-        color: var(--primary-color);
-      }
-
-      /* Payment section */
-      .payment-section {
-        background-color: white;
-        border-radius: 12px;
-        padding: 2rem;
-        margin: 4rem 0;
-        box-shadow: var(--shadow);
-        text-align: center;
-      }
-
-      .payment-section h2 {
-        font-size: 1.8rem;
-        margin-bottom: 1rem;
-        color: var(--dark-color);
-      }
-
-      .payment-section h3 {
-        font-size: 1.1rem;
-        color: var(--text-light);
-        margin-bottom: 1.5rem;
-        font-weight: 500;
-      }
-
-      .payment-qr {
-        max-width: 250px;
-        margin: 1.5rem auto;
-        border: 1px solid #eee;
-        padding: 10px;
-        border-radius: 8px;
-      }
-
-      .payment-qr img {
-        width: 100%;
+      #imageContainer img {
+        max-width: 100%;
         height: auto;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        margin: 0.5rem 0;
+      }
+
+      /* Loading State */
+      #loading {
+        margin-top: 1rem;
+        font-size: 1rem;
+        color: var(--primary-color);
+        font-weight: 500;
+      }
+
+      /* Video Styling */
+      .video video {
+        width: 100%;
+        max-width: 20rem;
+        border-radius: 8px;
+        margin: 1.5rem auto;
+        box-shadow: var(--shadow);
+      }
+
+      /* Payment Section */
+      .payment {
+        margin: 2rem 0;
+      }
+
+      .payment img {
+        width: 100%;
+        max-width: 20rem;
+        border-radius: 8px;
+        margin: 1rem auto;
+        box-shadow: var(--shadow);
+      }
+
+      /* Hide Elements Initially */
+      #uploadedImage,
+      #processedImage,
+      #downloadButton,
+      #loading {
+        display: none;
       }
 
       /* Footer */
@@ -372,6 +267,7 @@
         margin-bottom: 1.5rem;
         position: relative;
         padding-bottom: 0.5rem;
+        color: white;
       }
 
       .footer-column h3::after {
@@ -418,7 +314,7 @@
       }
 
       /* Responsive styles */
-      @media (max-width: 698px) {
+      @media (max-width: 768px) {
         .navbar-container {
           height: 70px;
         }
@@ -432,13 +328,6 @@
           display: block;
           position: relative;
         }
-        .card video, .card img {
-        width: 100%;
-        height: 200px;
-        object-fit: cover;
-        display: block;
-        transition: var(--transition);
-      }
 
         .navbar-container input[type="checkbox"] {
           position: absolute;
@@ -490,7 +379,7 @@
           transform: translateX(-150%);
           display: flex;
           flex-direction: column;
-          margin-left: -80px;
+          margin-left: -40px;
           padding-left: 40px;
           transition: transform 0.5s ease-in-out;
           box-shadow: 5px 0px 10px 0px #aaa;
@@ -506,9 +395,7 @@
           position: absolute;
           top: 50%;
           left: auto;
-   margin-left: 20px;
           right: 20px;
-        
           transform: translateY(-50%);
         }
 
@@ -528,24 +415,56 @@
           transform: rotate(-45deg);
         }
 
-        .slide img {
-          height: 300px;
+        .container {
+          padding: 1.5rem;
         }
 
-        .section-heading h1 {
-          font-size: 2rem;
+        h1 {
+          font-size: 1.75rem;
+        }
+
+        h3 {
+          font-size: 1.1rem;
+        }
+
+        p {
+          font-size: 0.9rem;
+        }
+
+        .upload-area p {
+          font-size: 0.9rem;
+        }
+
+        button {
+          font-size: 0.9rem;
+          padding: 0.5rem 1rem;
         }
       }
 
       @media (max-width: 480px) {
-        .nav-buttons button {
-          width: 40px;
-          height: 40px;
-          font-size: 1.2rem;
+        .container {
+          padding: 1rem;
         }
 
-        .section-heading h1 {
-          font-size: 1.8rem;
+        h1 {
+          font-size: 1.5rem;
+        }
+
+        h3 {
+          font-size: 1rem;
+        }
+
+        p {
+          font-size: 0.875rem;
+        }
+
+        .upload-area p {
+          font-size: 0.875rem;
+        }
+
+        button {
+          font-size: 0.875rem;
+          padding: 0.5rem 1rem;
         }
 
         .footer-content {
@@ -566,9 +485,9 @@
         <ul class="menu-items">
           <li><a href="index.html">Home</a></li>
           <li><a href="#">About</a></li>
-          <li><a href="#">Tool</a></li>
+          <li><a href="#">Tools</a></li>
           <li><a href="#">Learning</a></li>
-          <li><a href="removebg.html">Remove Bg</a></li>
+          <li><a href="removebg.html" class="active">Remove Bg</a></li>
           <li><a href="#">Contact</a></li>
         </ul>
         <img class="logo" src="Img/hgic.png" alt="HGIC Logo" />
@@ -576,99 +495,48 @@
     </nav>
 
     <div class="main-content">
-      <!-- Hero Slider -->
-      <div class="slider-container">
-        <div class="slider">
-          <div class="slides">
-            <div class="slide"><img src="Img/1.png" alt="Background removal example 1" /></div>
-            <div class="slide"><img src="Img/2.png" alt="Background removal example 2" /></div>
-            <div class="slide"><img src="Img/3.png" alt="Background removal example 3" /></div>
-            <div class="slide"><img src="Img/4.png" alt="Background removal example 4" /></div>
-          </div>
-
-          <div class="nav-buttons">
-            <button id="prev" aria-label="Previous slide">&#10094;</button>
-            <button id="next" aria-label="Next slide">&#10095;</button>
-          </div>
+      <div class="container">
+        <h1>Background Remover</h1>
+        <p>Upload an image to automatically remove its background</p>
+        <div
+          class="upload-area"
+          onclick="document.getElementById('imageUpload').click()"
+        >
+          <p>Drag & Drop Image</p>
+          <p>or click to upload</p>
+          <p>Supported formats: JPG, PNG, WEBP</p>
         </div>
-      </div>
-
-      <!-- Tools Section -->
-      <div class="section-heading">
-        <h1>Our Powerful Tools</h1>
-        <span class="subtitle">Professional Quality Results</span>
-      </div>
-
-      <div class="tools-grid">
-        <!-- Card one for Remove Bg -->
-        <div class="card">
-          <div class="card-media rainbow-bottom">
-            <video autoplay muted loop>
-              <source src="video/bgremover.mp4" type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Remove Background in One Click</h3>
-            <p class="card-description">
-              Effortlessly remove image backgrounds with AI technology. Get clean, transparent 
-              images instantly—perfect for eCommerce, presentations, and social media.
-            </p>
-            <a href="removebg.html" class="card-button">Try It Now</a>
-          </div>
+        <input type="file" id="imageUpload" accept="image/*" />
+        <div id="imageContainer">
+          <img id="uploadedImage" src="#" alt="Uploaded Image" />
+          <img id="processedImage" src="#" alt="Processed Image" />
         </div>
-
-        <!-- Additional cards can be added here -->
-        <div class="card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/600x400" alt="Coming soon tool" />
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">More Tools Coming Soon</h3>
-            <p class="card-description">
-              We're constantly developing new tools to make your workflow easier. 
-              Stay tuned for exciting updates!
-            </p>
-            <a href="#" class="card-button">Notify Me</a>
-          </div>
+        <button id="downloadButton">Download Processed Image</button>
+        <div id="loading">Processing...</div>
+        <div class="video">
+          <video
+            src="video/bgremove.mp4"
+            autoplay
+            loop
+            muted
+          ></video>
         </div>
-
-        <div class="card">
-          <div class="card-media">
-            <img src="https://via.placeholder.com/600x400" alt="Premium features" />
-          </div>
-          <div class="card-content">
-            <h3 class="card-title">Premium Features</h3>
-            <p class="card-description">
-              Unlock advanced features with our premium plan for professional 
-              users who need more control and options.
-            </p>
-            <a href="#" class="card-button">Upgrade Now</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Payment Section -->
-      <div class="payment-section">
-        <h2>Support Our Development</h2>
-        <h3>Your contribution helps us improve our tools</h3>
-        
-        <form>
-          <script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_Q5vYHIdfsJEXxx"
-            async
-          ></script>
-        </form>
-        
-        <h3>Or scan this QR code to donate</h3>
-        <div class="payment-qr">
+        <div class="payment">
+          <h3>Support Our Development</h3>
+          <p>Your contribution helps us improve our tools</p>
+          <form>
+            <script
+              src="https://checkout.razorpay.com/v1/payment-button.js"
+              data-payment_button_id="pl_Q5vYHIdfsJEXxx"
+              async
+            ></script>
+          </form>
+          <p>Or scan this QR code to donate</p>
           <img src="Img/PKNETWORKQR.png" alt="Payment QR Code" />
         </div>
       </div>
     </div>
 
-    <!-- Footer -->
     <footer>
       <div class="footer-content">
         <div class="footer-column">
@@ -708,57 +576,69 @@
     </footer>
 
     <script>
-      // Slider functionality
-      const slides = document.querySelector(".slides");
-      const slide = document.querySelectorAll(".slide");
-      let currentIndex = 0;
-      let slideInterval;
+      document
+        .getElementById("imageUpload")
+        .addEventListener("change", function (event) {
+          const file = event.target.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("uploadedImage").src = e.target.result;
+              document.getElementById("uploadedImage").style.display = "block";
+              removeBackground(file);
+            };
+            reader.readAsDataURL(file);
+          }
+        });
 
-      function startSlider() {
-        slideInterval = setInterval(() => {
-          currentIndex = (currentIndex + 1) % slide.length;
-          updateSlider();
-        }, 5000);
-      }
+      function removeBackground(file) {
+        const apiKey = "kxeMvaaag9EcAiyAVpPYxj8t"; // Replace with your Remove.bg API key
+        const formData = new FormData();
+        formData.append("image_file", file);
+        formData.append("size", "auto");
 
-      function updateSlider() {
-        slides.style.transform = `translateX(-${currentIndex * 100}%)`;
-      }
+        document.getElementById("loading").style.display = "block";
 
-      document.getElementById("next").addEventListener("click", () => {
-        clearInterval(slideInterval);
-        currentIndex = (currentIndex + 1) % slide.length;
-        updateSlider();
-        startSlider();
-      });
+        fetch("https://api.remove.bg/v1.0/removebg", {
+          method: "POST",
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+          body: formData,
+        })
+          .then((response) => response.blob())
+          .then((blob) => {
+            const url = URL.createObjectURL(blob);
+            document.getElementById("processedImage").src = url;
+            document.getElementById("processedImage").style.display = "block";
+            document.getElementById("downloadButton").style.display = "block";
+            document.getElementById("loading").style.display = "none";
 
-      document.getElementById("prev").addEventListener("click", () => {
-        clearInterval(slideInterval);
-        currentIndex = (currentIndex - 1 + slide.length) % slide.length;
-        updateSlider();
-        startSlider();
-      });
-
-      // Start the slider when page loads
-      window.addEventListener('load', () => {
-        startSlider();
-        
-        // Add animation class to cards when they come into view
-        const cards = document.querySelectorAll('.card');
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              entry.target.style.opacity = 1;
-              entry.target.style.transform = 'translateY(0)';
-            }
+            document.getElementById("downloadButton").onclick = function () {
+              const link = document.createElement("a");
+              link.href = url;
+              link.download = "Bg-remover-By-Pawanmaanju_29.png";
+              document.body.appendChild(link);
+              link.click();
+              document.body.removeChild(link);
+            };
+          })
+          .catch((error) => {
+            console.error("Error:", error);
+            document.getElementById("loading").style.display = "none";
+            alert("Error removing background. Please try again.");
           });
-        }, { threshold: 0.1 });
+      }
 
-        cards.forEach(card => {
-          card.style.opacity = 0;
-          card.style.transform = 'translateY(20px)';
-          card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-          observer.observe(card);
+      // Add active class to current page link
+      document.addEventListener('DOMContentLoaded', function() {
+        const currentPage = window.location.pathname.split('/').pop();
+        const navLinks = document.querySelectorAll('.menu-items a');
+        
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === currentPage) {
+            link.classList.add('active');
+          }
         });
       });
     </script>
