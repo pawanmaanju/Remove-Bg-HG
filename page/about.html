@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HGIC Tools - AI Image Enhancer</title>
+    <title>About Me - Hindustan Graphics Creator</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -125,14 +125,20 @@
         margin: 0 auto;
       }
 
-      /* Section heading */
-      .section-heading {
-        text-align: center;
-        margin: 4rem 0 2rem;
-        position: relative;
+      /* About Me Section */
+      .about-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 4rem 0;
       }
 
-      .section-heading h1 {
+      .profile-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .profile-header h1 {
         font-family: "Raleway", sans-serif;
         font-weight: 600;
         font-size: 2.5rem;
@@ -140,7 +146,7 @@
         margin-bottom: 1rem;
       }
 
-      .section-heading .subtitle {
+      .profile-header .subtitle {
         font-size: 1rem;
         font-weight: 500;
         text-transform: uppercase;
@@ -150,7 +156,7 @@
         margin-bottom: 1.5rem;
       }
 
-      .section-heading::after {
+      .profile-header::after {
         content: "";
         display: block;
         width: 80px;
@@ -164,204 +170,278 @@
         border-radius: 2px;
       }
 
-      /* Enhancer Tool Container */
-      .enhancer-container {
-        background: white;
+      .profile-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 3rem;
+        margin-bottom: 4rem;
+      }
+
+      .profile-image {
+        flex: 1;
+        min-width: 300px;
         border-radius: 12px;
-        padding: 2rem;
-        margin: 2rem 0;
+        overflow: hidden;
         box-shadow: var(--shadow);
       }
 
-      .upload-area {
-        border: 2px dashed #ccc;
-        border-radius: 8px;
-        padding: 3rem 2rem;
-        text-align: center;
-        margin-bottom: 2rem;
-        cursor: pointer;
+      .profile-image img {
+        width: 100%;
+        height: auto;
+        display: block;
         transition: var(--transition);
       }
 
-      .upload-area:hover {
-        border-color: var(--primary-color);
-        background-color: rgba(17, 121, 100, 0.05);
+      .profile-image:hover img {
+        transform: scale(1.03);
       }
 
-      .upload-area i {
-        font-size: 3rem;
-        color: var(--primary-color);
+      .profile-content {
+        flex: 2;
+        min-width: 300px;
+      }
+
+      .profile-content h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+
+      .profile-content h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: var(--primary-color);
+      }
+
+      .profile-content p {
+        margin-bottom: 1.5rem;
+        color: var(--text-light);
+      }
+
+      .skills-section {
+        width: 100%;
+        margin-top: 2rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 2rem;
+      }
+
+      .skill-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+      }
+
+      .skill-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .skill-card h3 {
+        font-size: 1.3rem;
         margin-bottom: 1rem;
+        color: var(--dark-color);
+        display: flex;
+        align-items: center;
       }
 
-      .upload-area h3 {
+      .skill-card h3 i {
+        margin-right: 0.8rem;
+        color: var(--primary-color);
+      }
+
+      .skill-card ul {
+        list-style: none;
+      }
+
+      .skill-card ul li {
+        margin-bottom: 0.5rem;
+        position: relative;
+        padding-left: 1.5rem;
+      }
+
+      .skill-card ul li::before {
+        content: "•";
+        color: var(--primary-color);
+        position: absolute;
+        left: 0;
+        font-size: 1.2rem;
+      }
+
+      .timeline-section {
+        width: 100%;
+        margin-top: 4rem;
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 3rem auto 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        width: 2px;
+        background-color: var(--primary-color);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -1px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background: white;
+        border-radius: 8px;
+        box-shadow: var(--shadow);
+        position: relative;
+      }
+
+      .timeline-content h4 {
+        font-size: 1.2rem;
         margin-bottom: 0.5rem;
         color: var(--dark-color);
       }
 
-      .upload-area p {
-        color: var(--text-light);
-        margin-bottom: 1rem;
-      }
-
-      .upload-btn {
-        display: inline-block;
-        padding: 0.8rem 2rem;
-        background-color: var(--primary-color);
-        color: white;
-        border-radius: 30px;
-        border: none;
-        font-weight: 500;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .upload-btn:hover {
-        background-color: #0e6a57;
-        transform: translateY(-2px);
-      }
-
-      .options-section {
-        margin: 2rem 0;
-      }
-
-      .options-section h3 {
-        margin-bottom: 1rem;
-        color: var(--dark-color);
-      }
-
-      .option-checkbox {
-        display: flex;
-        align-items: center;
-        margin-bottom: 1rem;
-      }
-
-      .option-checkbox input {
-        margin-right: 0.8rem;
-        width: 18px;
-        height: 18px;
-      }
-
-      .preview-section {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .image-container {
-        flex: 1;
-        min-width: 300px;
-      }
-
-      .image-container h4 {
-        margin-bottom: 1rem;
-        text-align: center;
-        color: var(--dark-color);
-      }
-
-      .image-preview {
-        width: 100%;
-        height: 300px;
-        border-radius: 8px;
-        overflow: hidden;
-        border: 1px solid #eee;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background-color: #f5f5f5;
-      }
-
-      .image-preview img {
-        max-width: 100%;
-        max-height: 100%;
-        object-fit: contain;
-      }
-
-      .action-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-        margin-top: 2rem;
-      }
-
-      .btn {
-        padding: 0.8rem 2rem;
-        border-radius: 30px;
-        font-weight: 500;
-        cursor: pointer;
-        transition: var(--transition);
-        border: 2px solid var(--primary-color);
-      }
-
-      .btn-primary {
-        background-color: var(--primary-color);
-        color: white;
-      }
-
-      .btn-primary:hover {
-        background-color: #0e6a57;
-        transform: translateY(-2px);
-      }
-
-      .btn-outline {
-        background-color: transparent;
+      .timeline-content .date {
         color: var(--primary-color);
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+        display: block;
       }
 
-      .btn-outline:hover {
-        background-color: rgba(17, 121, 100, 0.1);
-        transform: translateY(-2px);
-      }
-
-      /* Loading state */
-      .loading {
-        display: none;
-        text-align: center;
-        margin: 2rem 0;
-      }
-
-      .spinner {
-        width: 40px;
-        height: 40px;
-        border: 4px solid rgba(17, 121, 100, 0.2);
-        border-top: 4px solid var(--primary-color);
+      .timeline-item::after {
+        content: '';
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background-color: white;
+        border: 3px solid var(--primary-color);
         border-radius: 50%;
-        animation: spin 1s linear infinite;
-        margin: 0 auto 1rem;
+        top: 15px;
+        z-index: 1;
       }
 
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+      .timeline-item:nth-child(odd)::after {
+        right: -10px;
       }
 
-      /* Result section */
-      .result-section {
-        display: none;
-        margin-top: 2rem;
+      .timeline-item:nth-child(even)::after {
+        left: -10px;
+      }
+
+      .contact-cta {
         text-align: center;
+        margin-top: 4rem;
+        padding: 3rem;
+        background: white;
+        border-radius: 12px;
+        box-shadow: var(--shadow);
       }
 
-      .download-btn {
+      .contact-cta h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+      }
+
+      .contact-cta p {
+        max-width: 600px;
+        margin: 0 auto 2rem;
+        color: var(--text-light);
+      }
+
+      .cta-button {
         display: inline-block;
         padding: 0.8rem 2rem;
-        background-color: var(--accent-color);
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
         color: white;
         border-radius: 30px;
         text-decoration: none;
         font-weight: 500;
-        margin-top: 1rem;
         transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
       }
 
-      .download-btn:hover {
-        background-color: #d63b2b;
-        transform: translateY(-2px);
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
       }
 
       /* Responsive styles */
       @media (max-width: 768px) {
+        .profile-header h1 {
+          font-size: 2rem;
+        }
+
+        .timeline::before {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+
+        .timeline-item::after {
+          left: 21px;
+        }
+
+        .timeline-item:nth-child(odd)::after,
+        .timeline-item:nth-child(even)::after {
+          left: 21px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .profile-header h1 {
+          font-size: 1.8rem;
+        }
+
+        .profile-content h2 {
+          font-size: 1.5rem;
+        }
+      }
+     
+      /* Responsive styles */
+      @media (max-width: 698px) {
         .navbar-container {
           height: 70px;
         }
@@ -374,6 +454,14 @@
         .navbar-container {
           display: block;
           position: relative;
+        }
+        .card video,
+        .card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: var(--transition);
         }
 
         .navbar-container input[type="checkbox"] {
@@ -444,6 +532,7 @@
           left: auto;
           margin-left: 20px;
           right: 20px;
+
           transform: translateY(-50%);
         }
 
@@ -472,29 +561,31 @@
           transform: rotate(-45deg);
         }
 
-        .section-heading h1 {
-          font-size: 2rem;
+        .slide img {
+          height: 100%;
+
         }
 
-        .preview-section {
-          flex-direction: column;
+        .section-heading h1 {
+          font-size: 2rem;
         }
       }
 
       @media (max-width: 480px) {
+        .nav-buttons button {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
         .section-heading h1 {
           font-size: 1.8rem;
         }
 
-        .action-buttons {
-          flex-direction: column;
-        }
-
-        .btn {
-          width: 100%;
+        .footer-content {
+          grid-template-columns: 1fr;
         }
       }
-
       /* ========== FOOTER ========== */
       footer {
         background: linear-gradient(135deg, var(--dark-color), #1a2a3a);
@@ -667,12 +758,6 @@
       .newsletter-form button:hover {
         opacity: 0.9;
       }
-
-      @media (max-width: 480px) {
-        .footer-content {
-          grid-template-columns: 1fr;
-        }
-      }
     </style>
   </head>
   <body>
@@ -685,101 +770,119 @@
           <span class="line line3"></span>
         </div>
         <ul class="menu-items">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="/page/about.html">About</a></li>
-            <li><a href="/tool/tool.html">Tools</a></li>
-            <li><a href="#">Learning</a></li>
-            <li><a href="removebg.html" class="active">Remove Bg</a></li>
-            <li><a href="/page/contact.html">Contact</a></li>
-          </ul>
-        <img class="logo" src="Img/hgic.png" alt="HGIC Logo" />
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/page/about.html">About</a></li>
+          <li><a href="/tool/tool.html">Tools</a></li>
+          <li><a href="#">Learning</a></li>
+          <li><a href="removebg.html" class="active">Remove Bg</a></li>
+          <li><a href="/page/contact.html">Contact</a></li>
+        </ul>
+        <img class="logo" src="Img/hgic.png" alt="HG Logo" />
       </div>
     </nav>
 
     <div class="main-content">
-      <div class="section-heading">
-        <h1>AI Image Enhancer</h1>
-        <span class="subtitle">Upscale and Enhance Your Images</span>
-      </div>
-
-      <div class="enhancer-container">
-        <div class="upload-area" id="uploadArea">
-          <i class="fas fa-cloud-upload-alt"></i>
-          <h3>Upload Your Image</h3>
-          <p>Drag & drop your image here or click to browse</p>
-          <p class="file-requirements">Supported formats: JPEG, PNG, WebP (Max 1440x1440px)</p>
-          <input type="file" id="fileInput" accept=".jpg,.jpeg,.png,.webp" style="display: none;">
-          <button class="upload-btn" id="uploadBtn">Select Image</button>
+      <section class="about-section">
+        <div class="profile-header">
+          <h1>About The Creator</h1>
+          <span class="subtitle">Pawan Bishnoi - Web Developer & Designer</span>
         </div>
 
-        <div class="options-section">
-          <h3>Enhancement Options</h3>
-          <div class="option-checkbox">
-            <input type="checkbox" id="upscale2x" name="upscale2x" checked>
-            <label for="upscale2x">2x Upscaling</label>
+        <div class="profile-container">
+          <div class="profile-image">
+            <img src="https://via.placeholder.com/500x600" alt="Pawan Bishnoi - Hindustan Graphics Creator">
           </div>
-          <div class="option-checkbox">
-            <input type="checkbox" id="noiseReduction" name="noiseReduction" checked>
-            <label for="noiseReduction">Noise Reduction</label>
-          </div>
-          <div class="option-checkbox">
-            <input type="checkbox" id="sharpnessBoost" name="sharpnessBoost" checked>
-            <label for="sharpnessBoost">Sharpness Boost</label>
-          </div>
-        </div>
-
-        <div class="preview-section" id="previewSection" style="display: none;">
-          <div class="image-container">
-            <h4>Original Image</h4>
-            <div class="image-preview">
-              <img id="originalPreview" src="" alt="Original image preview">
+          <div class="profile-content">
+            <h2>Hello, I'm Pawan Bishnoi</h2>
+            <p>I'm a passionate web developer and designer with expertise in creating powerful online tools that make digital tasks easier for everyone. My journey in web development began several years ago when I discovered my love for solving problems through code.</p>
+            
+            <p>HG was born out of my desire to create simple yet powerful solutions for common challenges faced by content creators, marketers, and everyday internet users. I believe technology should be accessible and helpful to everyone, regardless of their technical background.</p>
+            
+            <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or teaching web development to aspiring programmers. I'm constantly learning and pushing myself to create better tools that serve real needs.</p>
+            
+            <div class="skills-section">
+              <h2>My Skills & Expertise</h2>
+              <div class="skills-grid">
+                <div class="skill-card">
+                  <h3><i class="fas fa-code"></i> Web Development</h3>
+                  <ul>
+                    <li>HTML5, CSS3, JavaScript</li>
+                    <li>React, Vue.js</li>
+                    <li>Node.js, Express</li>
+                    <li>PHP, MySQL</li>
+                    <li>RESTful APIs</li>
+                  </ul>
+                </div>
+                
+                <div class="skill-card">
+                  <h3><i class="fas fa-paint-brush"></i> Design & UX</h3>
+                  <ul>
+                    <li>UI/UX Design</li>
+                    <li>Responsive Design</li>
+                    <li>Adobe Photoshop</li>
+                    <li>Adobe Illustrator</li>
+                    <li>Figma</li>
+                  </ul>
+                </div>
+                
+                <div class="skill-card">
+                  <h3><i class="fas fa-cogs"></i> Tools & Technologies</h3>
+                  <ul>
+                    <li>Git & GitHub</li>
+                    <li>Webpack, Babel</li>
+                    <li>Docker</li>
+                    <li>AWS Basics</li>
+                    <li>AI Integration</li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </div>
-          <div class="image-container">
-            <h4>Enhanced Result</h4>
-            <div class="image-preview">
-              <img id="enhancedPreview" src="" alt="Enhanced image preview">
+        </div>
+
+        <div class="timeline-section">
+          <h2 class="profile-header">My Journey</h2>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <span class="date">2020 - Present</span>
+                <h4>Freelance Web Developer</h4>
+                <p>Building custom websites and web applications for clients worldwide, specializing in creative solutions and user-friendly interfaces.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <span class="date">2019 - 2020</span>
+                <h4>Junior Frontend Developer</h4>
+                <p>Worked with a digital agency to create responsive websites and implement modern web technologies for diverse clients.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <span class="date">2017 - 2019</span>
+                <h4>Web Development Student</h4>
+                <p>Self-taught through online courses, tutorials, and building personal projects to develop my skills in web development.</p>
+              </div>
+            </div>
+            
+            <div class="timeline-item">
+              <div class="timeline-content">
+                <span class="date">2023</span>
+                <h4>Launched HG</h4>
+                <p>Created HG  to provide free, high-quality web tools that help people with their daily digital tasks and content creation.</p>
+              </div>
             </div>
           </div>
         </div>
 
-        <div class="loading" id="loadingIndicator">
-          <div class="spinner"></div>
-          <p>Enhancing your image...</p>
-          <p>This may take a few moments</p>
+        <div class="contact-cta">
+          <h2>Let's Work Together</h2>
+          <p>I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+          <a href="#" class="cta-button">Get In Touch</a>
         </div>
-
-        <div class="action-buttons" id="actionButtons" style="display: none;">
-          <button class="btn btn-outline" id="cancelBtn">Cancel</button>
-          <button class="btn btn-primary" id="enhanceBtn">Enhance Image</button>
-        </div>
-
-        <div class="result-section" id="resultSection">
-          <h3>Your enhanced image is ready!</h3>
-          <a href="#" class="download-btn" id="downloadBtn" download="enhanced-image.png">
-            <i class="fas fa-download"></i> Download Enhanced Image
-          </a>
-        </div>
-      </div>
-
-      <!-- Payment Section -->
-      <div class="payment-section">
-        <h2>Support Our Development</h2>
-        <h3>Your contribution helps us improve our tools</h3>
-
-        <form>
-          <script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_Q5vYHIdfsJEXxx"
-            async
-          ></script>
-        </form>
-
-        <h3>Or scan this QR code to donate</h3>
-        <div class="payment-qr">
-          <img src="Img/PKNETWORKQR.png" alt="Payment QR Code" />
-        </div>
-      </div>
+      </section>
     </div>
 
     <!-- Footer -->
@@ -788,12 +891,12 @@
         <div class="footer-column">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">About Us</a></li>
-            <li><a href="#">Tools</a></li>
-            <li><a href="#">Tutorials</a></li>
-            <li><a href="removebg.html">Remove Background</a></li>
-            <li><a href="ai-enhance.html">AI Enhance</a></li>
+            <li><a href="/page/about.html">About HG</a></li>
+            <li><a href="/page/team.html">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="/page/contact.html">Contact Us</a></li>
           </ul>
         </div>
 
@@ -812,7 +915,7 @@
         <div class="footer-column">
           <h3>Company</h3>
           <ul>
-            <li><a href="#">About HGIC</a></li>
+            <li><a href="#">About HG</a></li>
             <li><a href="#">Our Team</a></li>
             <li><a href="#">Careers</a></li>
             <li><a href="#">Blog</a></li>
@@ -824,9 +927,9 @@
         <div class="footer-column">
           <h3>Connect With Us</h3>
           <ul>
-            <li><i class="fas fa-envelope"></i> support@hgictools.com</li>
-            <li><i class="fas fa-phone"></i> +1 (555) 123-4567</li>
-            <li><i class="fas fa-map-marker-alt"></i> 123 Tech Street, Silicon Valley</li>
+            <li><i class="fas fa-envelope"></i> pkeditz29@gmail.com</li>
+            <li><i class="fas fa-phone"></i> +62 831-3271-8264</li>
+            <li><i class="fas fa-map-marker-alt"></i> 12 B Road Sardharpura Jodhpur , Rajasthan , India</li>
           </ul>
           
           <div class="social-links">
@@ -855,7 +958,7 @@
             <a href="#">GDPR</a>
           </div>
           <div class="copyright">
-            &copy; 2025 HGIC Tools. All rights reserved. Created by
+            &copy; 2025 Hindustan Graphics . All rights reserved. Created by
             <a href="https://www.instagram.com/pawanmaanju_29">Pawan Bishnoi</a>
           </div>
         </div>
@@ -863,141 +966,24 @@
     </footer>
 
     <script>
-      // DOM Elements
-      const uploadArea = document.getElementById('uploadArea');
-      const uploadBtn = document.getElementById('uploadBtn');
-      const fileInput = document.getElementById('fileInput');
-      const previewSection = document.getElementById('previewSection');
-      const originalPreview = document.getElementById('originalPreview');
-      const enhancedPreview = document.getElementById('enhancedPreview');
-      const actionButtons = document.getElementById('actionButtons');
-      const enhanceBtn = document.getElementById('enhanceBtn');
-      const cancelBtn = document.getElementById('cancelBtn');
-      const loadingIndicator = document.getElementById('loadingIndicator');
-      const resultSection = document.getElementById('resultSection');
-      const downloadBtn = document.getElementById('downloadBtn');
-
-      // DeepAI API Configuration
-      const DEEPAI_API_KEY = '3f6a379d-df81-4c30-a7df-a7975c8ac5c2';
-      const DEEPAI_API_URL = 'https://api.deepai.org/api/torch-srgan';
-
-      // Event Listeners
-      uploadArea.addEventListener('click', () => fileInput.click());
-      uploadBtn.addEventListener('click', () => fileInput.click());
+      // Add animation to timeline items when they come into view
+      const timelineItems = document.querySelectorAll('.timeline-item');
       
-      fileInput.addEventListener('change', handleFileSelect);
-      enhanceBtn.addEventListener('click', enhanceImage);
-      cancelBtn.addEventListener('click', resetForm);
-
-      // Drag and drop functionality
-      uploadArea.addEventListener('dragover', (e) => {
-        e.preventDefault();
-        uploadArea.style.borderColor = 'var(--primary-color)';
-        uploadArea.style.backgroundColor = 'rgba(17, 121, 100, 0.1)';
-      });
-
-      uploadArea.addEventListener('dragleave', () => {
-        uploadArea.style.borderColor = '#ccc';
-        uploadArea.style.backgroundColor = 'transparent';
-      });
-
-      uploadArea.addEventListener('drop', (e) => {
-        e.preventDefault();
-        uploadArea.style.borderColor = '#ccc';
-        uploadArea.style.backgroundColor = 'transparent';
-        
-        if (e.dataTransfer.files.length) {
-          fileInput.files = e.dataTransfer.files;
-          handleFileSelect({ target: fileInput });
-        }
-      });
-
-      // Functions
-      function handleFileSelect(event) {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        // Check file type
-        const validTypes = ['image/jpeg', 'image/png', 'image/webp'];
-        if (!validTypes.includes(file.type)) {
-          alert('Please upload a valid image file (JPEG, PNG, or WebP)');
-          return;
-        }
-
-        // Check image dimensions
-        const img = new Image();
-        img.onload = function() {
-          if (this.width > 1440 || this.height > 1440) {
-            alert('Image resolution is too large. Maximum size is 1440x1440px.Please Upload Small File.');
-            return;
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+            entry.target.style.transform = 'translateY(0)';
           }
-
-          // Display preview
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            originalPreview.src = e.target.result;
-            previewSection.style.display = 'flex';
-            actionButtons.style.display = 'flex';
-          };
-          reader.readAsDataURL(file);
-        };
-        img.src = URL.createObjectURL(file);
-      }
-
-      async function enhanceImage() {
-        const file = fileInput.files[0];
-        if (!file) return;
-
-        // Show loading indicator
-        loadingIndicator.style.display = 'block';
-        actionButtons.style.display = 'none';
-        previewSection.style.display = 'none';
-
-        try {
-          // Create FormData for the API request
-          const formData = new FormData();
-          formData.append('image', file);
-
-          const response = await fetch(DEEPAI_API_URL, {
-            method: 'POST',
-            headers: {
-              'api-key': DEEPAI_API_KEY
-            },
-            body: formData
-          });
-
-          const data = await response.json();
-
-          if (response.ok && data.output_url) {
-            // Display the enhanced image
-            enhancedPreview.src = data.output_url;
-            downloadBtn.href = data.output_url;
-            downloadBtn.download = 'enhanced_pawanmaanju_29' + file.name.replace(/\.[^/.]+$/, '') + '.png';
-            
-            loadingIndicator.style.display = 'none';
-            previewSection.style.display = 'flex';
-            resultSection.style.display = 'block';
-          } else {
-            throw new Error(data.error || 'Failed to enhance image');
-          }
-        } catch (error) {
-          console.error('Error:', error);
-          alert('An error occurred while enhancing the image. Please try again.');
-          loadingIndicator.style.display = 'none';
-          actionButtons.style.display = 'flex';
-          previewSection.style.display = 'flex';
-        }
-      }
-
-      function resetForm() {
-        fileInput.value = '';
-        originalPreview.src = '';
-        enhancedPreview.src = '';
-        previewSection.style.display = 'none';
-        actionButtons.style.display = 'none';
-        loadingIndicator.style.display = 'none';
-        resultSection.style.display = 'none';
-      }
+        });
+      }, { threshold: 0.1 });
+      
+      timelineItems.forEach(item => {
+        item.style.opacity = 0;
+        item.style.transform = 'translateY(20px)';
+        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        observer.observe(item);
+      });
     </script>
   </body>
 </html>

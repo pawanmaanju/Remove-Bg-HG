@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us - Hindustan Graphics</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      :root {
+        --primary-color: rgb(17, 121, 100);
+        --secondary-color: rgb(44, 62, 80);
+        --accent-color: #e74c3c;
+        --light-color: #ecf0f1;
+        --dark-color: #2c3e50;
+        --text-color: #333;
+        --text-light: #666;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease-in-out;
+      }
+
+      *,
+      *::after,
+      *::before {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        line-height: 1.6;
+        color: var(--text-color);
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      .navbar {
+        box-shadow: var(--shadow);
+        position: fixed;
+        width: 100%;
+        background: #fff;
+        color: var(--dark-color);
+        opacity: 0.97;
+        z-index: 1000;
+        transition: var(--transition);
+      }
+
+      .navbar-container {
+        display: flex;
+        justify-content: space-between;
+        height: 80px;
+        align-items: center;
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      .menu-items {
+        display: flex;
+        order: 2;
+      }
+
+      .logo {
+        position: absolute;
+        top: 50%;
+        left: 20px;
+        transform: translateY(-50%);
+        height: 50px;
+        width: auto;
+        transition: var(--transition);
+      }
+
+      .menu-items li {
+        list-style: none;
+        margin-left: 2rem;
+      }
+
+      .navbar a {
+        color: var(--dark-color);
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 1.1rem;
+        transition: var(--transition);
+        position: relative;
+        padding: 0.5rem 0;
+      }
+
+      .navbar a:hover {
+        color: var(--primary-color);
+      }
+
+      .navbar a::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary-color);
+        transition: var(--transition);
+      }
+
+      .navbar a:hover::after {
+        width: 100%;
+      }
+
+      /* Hamburger menu styles */
+      .navbar-container input[type="checkbox"],
+      .navbar-container .hamburger-lines {
+        display: none;
+      }
+
+      /* Main content area */
+      .main-content {
+        padding-top: 100px;
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        margin: 4rem 0;
+      }
+
+      .section-heading {
+        text-align: center;
+        margin-bottom: 4rem;
+        position: relative;
+      }
+
+      .section-heading h1 {
+        font-family: "Raleway", sans-serif;
+        font-weight: 600;
+        font-size: 2.5rem;
+        color: var(--dark-color);
+        margin-bottom: 1rem;
+      }
+
+      .section-heading .subtitle {
+        font-size: 1rem;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        color: var(--text-light);
+        display: block;
+        margin-bottom: 1.5rem;
+      }
+
+      .section-heading::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        margin: 0 auto;
+        border-radius: 2px;
+      }
+
+      .contact-description {
+        text-align: center;
+        max-width: 800px;
+        margin: 0 auto 3rem;
+        color: var(--text-light);
+      }
+
+      .contact-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 3rem;
+        margin: 3rem 0;
+      }
+
+      .contact-info {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-info h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .contact-info h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 3px;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+      }
+
+      .info-icon {
+        width: 50px;
+        height: 50px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        margin-right: 1.5rem;
+        flex-shrink: 0;
+      }
+
+      .info-content h3 {
+        font-size: 1.2rem;
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+      }
+
+      .info-content p,
+      .info-content a {
+        color: var(--text-light);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .info-content a:hover {
+        color: var(--primary-color);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 50%;
+        color: var(--dark-color);
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+      }
+
+      .contact-form {
+        background: white;
+        border-radius: 12px;
+        padding: 2.5rem;
+        box-shadow: var(--shadow);
+      }
+
+      .contact-form h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1.5rem;
+        color: var(--dark-color);
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .contact-form h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 3px;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: var(--dark-color);
+      }
+
+      .form-control {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-family: "Poppins", sans-serif;
+        transition: var(--transition);
+      }
+
+      .form-control:focus {
+        outline: none;
+        border-color: var(--primary-color);
+        box-shadow: 0 0 0 3px rgba(17, 121, 100, 0.1);
+      }
+
+      textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        border: none;
+        border-radius: 30px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .map-container {
+        margin: 4rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+      }
+
+      /* Responsive styles */
+      @media (max-width: 768px) {
+        .section-heading h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .section-heading h1 {
+          font-size: 1.8rem;
+        }
+
+        .info-item {
+          flex-direction: column;
+        }
+
+        .info-icon {
+          margin-bottom: 1rem;
+        }
+      }
+
+      /* nav and footer baar */
+
+      /* Responsive styles */
+      @media (max-width: 698px) {
+        .navbar-container {
+          height: 70px;
+        }
+
+        .navbar-container input[type="checkbox"],
+        .navbar-container .hamburger-lines {
+          display: block;
+        }
+
+        .navbar-container {
+          display: block;
+          position: relative;
+        }
+        .card video,
+        .card img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: var(--transition);
+        }
+
+        .navbar-container input[type="checkbox"] {
+          position: absolute;
+          display: block;
+          height: 32px;
+          width: 30px;
+          top: 20px;
+          left: 20px;
+          z-index: 5;
+          opacity: 0;
+          cursor: pointer;
+        }
+
+        .navbar-container .hamburger-lines {
+          display: block;
+          height: 28px;
+          width: 35px;
+          position: absolute;
+          top: 20px;
+          left: 20px;
+          z-index: 2;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+        }
+
+        .navbar-container .hamburger-lines .line {
+          display: block;
+          height: 4px;
+          width: 100%;
+          border-radius: 10px;
+          background: var(--dark-color);
+          transition: var(--transition);
+        }
+
+        .navbar-container .hamburger-lines .line1 {
+          transform-origin: 0% 0%;
+        }
+
+        .navbar-container .hamburger-lines .line3 {
+          transform-origin: 0% 100%;
+        }
+
+        .menu-items {
+          padding-top: 100px;
+          background: #fff;
+          height: 100vh;
+          max-width: 300px;
+          transform: translateX(-150%);
+          display: flex;
+          flex-direction: column;
+          margin-left: -30px;
+          padding-left: 40px;
+          transition: transform 0.5s ease-in-out;
+          box-shadow: 5px 0px 10px 0px #aaa;
+        }
+
+        .menu-items li {
+          margin-bottom: 1.8rem;
+          font-size: 1.1rem;
+          margin-left: 0;
+        }
+
+        .logo {
+          position: absolute;
+          top: 50%;
+          left: auto;
+          margin-left: 20px;
+          right: 20px;
+
+          transform: translateY(-50%);
+        }
+
+        .navbar-container input[type="checkbox"]:checked ~ .menu-items {
+          transform: translateX(0);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line1 {
+          transform: rotate(45deg);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line2 {
+          transform: scaleY(0);
+        }
+
+        .navbar-container
+          input[type="checkbox"]:checked
+          ~ .hamburger-lines
+          .line3 {
+          transform: rotate(-45deg);
+        }
+
+        .slide img {
+          height: 100%;
+        }
+
+        .section-heading h1 {
+          font-size: 2rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .nav-buttons button {
+          width: 40px;
+          height: 40px;
+          font-size: 1.2rem;
+        }
+
+        .section-heading h1 {
+          font-size: 1.8rem;
+        }
+
+        .footer-content {
+          grid-template-columns: 1fr;
+        }
+      }
+      /* ========== FOOTER ========== */
+      footer {
+        background: linear-gradient(135deg, var(--dark-color), #1a2a3a);
+        color: white;
+        padding: 4rem 0 0;
+        margin-top: 4rem;
+      }
+
+      .footer-content {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 3rem;
+      }
+
+      .footer-column {
+        margin-bottom: 2rem;
+      }
+
+      .footer-column h3 {
+        font-size: 1.3rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.8rem;
+      }
+
+      .footer-column h3::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 50px;
+        height: 3px;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        border-radius: 3px;
+      }
+
+      .footer-column ul {
+        list-style: none;
+      }
+
+      .footer-column ul li {
+        margin-bottom: 1rem;
+      }
+
+      .footer-column a {
+        color: #d1d5db;
+        text-decoration: none;
+        transition: var(--transition);
+        display: inline-block;
+      }
+
+      .footer-column a:hover {
+        color: white;
+        transform: translateX(5px);
+      }
+
+      .social-links {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+      }
+
+      .footer-bottom {
+        background-color: rgba(0, 0, 0, 0.2);
+        padding: 2rem 0;
+        margin-top: 3rem;
+      }
+
+      .footer-container {
+        max-width: 1200px;
+        width: 90%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .copyright {
+        font-size: 0.9rem;
+        color: #bbb;
+        margin-bottom: 1rem;
+      }
+
+      .copyright a {
+        color: var(--primary-color);
+        font-weight: 600;
+        text-decoration: none;
+      }
+
+      .footer-links {
+        display: flex;
+        gap: 1.5rem;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .footer-links a {
+        color: #bbb;
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .footer-links a:hover {
+        color: white;
+      }
+
+      .newsletter {
+        margin-top: 1.5rem;
+        max-width: 400px;
+        width: 100%;
+      }
+
+      .newsletter h4 {
+        margin-bottom: 1rem;
+        font-weight: 500;
+      }
+
+      .newsletter-form {
+        display: flex;
+      }
+
+      .newsletter-form input {
+        flex: 1;
+        padding: 0.8rem;
+        border: none;
+        border-radius: 30px 0 0 30px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      .newsletter-form button {
+        padding: 0 1.5rem;
+        background: linear-gradient(
+          to right,
+          var(--primary-color),
+          var(--accent-color)
+        );
+        color: white;
+        border: none;
+        border-radius: 0 30px 30px 0;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .newsletter-form button:hover {
+        opacity: 0.9;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="navbar-container">
+        <input type="checkbox" name="" id="" />
+        <div class="hamburger-lines">
+          <span class="line line1"></span>
+          <span class="line line2"></span>
+          <span class="line line3"></span>
+        </div>
+        <ul class="menu-items">
+          <li><a href="/index.html">Home</a></li>
+          <li><a href="/page/about.html">About</a></li>
+          <li><a href="/tool/tool.html">Tools</a></li>
+          <li><a href="#">Learning</a></li>
+          <li><a href="removebg.html" class="active">Remove Bg</a></li>
+          <li><a href="/page/contact.html">Contact</a></li>
+        </ul>
+        <img class="logo" src="/Img/hgic.png" alt="HG Logo" />
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <section class="contact-section">
+        <div class="section-heading">
+          <h1>Contact Us</h1>
+          <span class="subtitle">We'd love to hear from you</span>
+        </div>
+
+        <p class="contact-description">
+          Have questions about our tools or services? Want to provide feedback
+          or explore partnership opportunities? Reach out to us using the form
+          below or through our contact information.
+        </p>
+
+        <div class="contact-container">
+          <div class="contact-info">
+            <h2>Get in Touch</h2>
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-map-marker-alt"></i>
+              </div>
+              <div class="info-content">
+                <h3>Our Location</h3>
+                <p>12 B Road Sardharpura, Jodhpur, Rajasthan, India</p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-envelope"></i>
+              </div>
+              <div class="info-content">
+                <h3>Email Us</h3>
+                <p>
+                  <a href="mailto:pkeditz29@gmail.com">pkeditz29@gmail.com</a>
+                </p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-phone-alt"></i>
+              </div>
+              <div class="info-content">
+                <h3>Call Us</h3>
+                <p><a href="tel:+6283132718264">+62 831-3271-8264</a></p>
+              </div>
+            </div>
+
+            <div class="info-item">
+              <div class="info-icon">
+                <i class="fas fa-clock"></i>
+              </div>
+              <div class="info-content">
+                <h3>Working Hours</h3>
+                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                <p>Saturday: 10:00 AM - 4:00 PM</p>
+              </div>
+            </div>
+
+            <div class="social-links">
+              <a href="#" aria-label="Twitter"
+                ><i class="fab fa-twitter"></i
+              ></a>
+              <a href="#" aria-label="Facebook"
+                ><i class="fab fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/pawanmaanju_29"
+                aria-label="Instagram"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" aria-label="LinkedIn"
+                ><i class="fab fa-linkedin-in"></i
+              ></a>
+            </div>
+          </div>
+
+          <div class="contact-form">
+            <h2>Send Us a Message</h2>
+            <form
+              id="contactForm"
+              action="https://formspree.io/f/mrbqbqao"
+              method="POST"
+            >
+              <div class="form-group">
+                <label for="name">Your Name</label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="subject">Subject</label>
+                <input
+                  type="text"
+                  id="subject"
+                  name="subject"
+                  class="form-control"
+                  required
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="message">Your Message</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  class="form-control"
+                  required
+                ></textarea>
+              </div>
+
+              <!-- Add a hidden field for redirect -->
+              <input
+                type="hidden"
+                name="_next"
+                value="http://127.0.0.1:3000/page/tqsubmit.html"
+              />
+
+              <!-- Optional: Add a subject prefix -->
+              <input
+                type="hidden"
+                name="_subject"
+                value="New Contact Form Submission"
+              />
+
+              <!-- Optional: Prevent Formspree from adding their branding -->
+              <input type="text" name="_gotcha" style="display: none" />
+
+              <button type="submit" class="submit-btn">Send Message</button>
+            </form>
+          </div>
+        </div>
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3576.102370257493!2d73.0088893150336!3d26.31698398338916!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39418c4c1e07b6a5%3A0x3a9d3b6e7b1a3b6c!2sSardarpura%2C%20Jodhpur%2C%20Rajasthan!5e0!3m2!1sen!2sin!4v1620000000000!5m2!1sen!2sin"
+            allowfullscreen=""
+            loading="lazy"
+          ></iframe>
+        </div>
+      </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <div class="footer-content">
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/index.html">Home</a></li>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Tools</a></li>
+            <li><a href="#">Tutorials</a></li>
+            <li><a href="/Tools/removebg.html">Remove Background</a></li>
+            <li><a href="/Tools/AIEnhancer.html">AI Enhance</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Resources</h3>
+          <ul>
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">API Documentation</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Company</h3>
+          <ul>
+            <li><a href="/page/about.html">About HG</a></li>
+            <li><a href="/page/team.html">Our Team</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Press</a></li>
+            <li><a href="/page/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-column">
+          <h3>Connect With Us</h3>
+          <ul>
+            <li><i class="fas fa-envelope"></i> pkeditz29@gmail.com</li>
+            <li><i class="fas fa-phone"></i> +62 831-3271-8264</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> 12 B Road Sardharpura
+              Jodhpur , Rajasthan , India
+            </li>
+          </ul>
+
+          <div class="social-links">
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/pawanmaanju_29"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
+          </div>
+
+          <div class="newsletter">
+            <h4>Subscribe to our newsletter</h4>
+            <form class="newsletter-form">
+              <input type="email" placeholder="Your email address" required />
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="footer-container">
+          <div class="footer-links">
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Cookie Policy</a>
+            <a href="#">GDPR</a>
+          </div>
+          <div class="copyright">
+            &copy; 2025 Hindustan Graphics. All rights reserved. Created by
+            <a href="https://www.instagram.com/pawanmaanju_29">Pawan Bishnoi</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+     
+
+      // Animation for contact sections
+      const contactSections = document.querySelectorAll(
+        ".contact-info, .contact-form, .map-container"
+      );
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      contactSections.forEach((section) => {
+        section.style.opacity = 0;
+        section.style.transform = "translateY(20px)";
+        section.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(section);
+      });
+
+      // Optional: Add form submission feedback
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", function (e) {
+          // You can add loading animation here if you want
+          const submitBtn = this.querySelector(".submit-btn");
+          submitBtn.disabled = true;
+          submitBtn.textContent = "Sending...";
+
+          // The form will still submit to Formspree
+          // The redirect is handled by Formspree's _next parameter
+        });
+    </script>
+  </body>
+</html>
+
+<!-- tqsumbit.html -->

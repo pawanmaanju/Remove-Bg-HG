@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phot.AI Image Enhancer</title>
+    <style>
+        :root {
+            --primary: #6e48aa;
+            --error: #ff4a4a;
+            --success: #4aff6b;
+            --warning: #ffb84a;
+        }
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        .upload-container {
+            border: 2px dashed var(--primary);
+            padding: 2rem;
+            text-align: center;
+            margin: 1rem 0;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+        .upload-container:hover {
+            background-color: #f9f5ff;
+        }
+        #status {
+            padding: 0.8rem;
+            border-radius: 4px;
+            margin: 1rem 0;
+            display: none;
+        }
+        .error { background: #ffeeee; color: var(--error); border-left: 4px solid var(--error); }
+        .success { background: #eeffee; color: var(--success); border-left: 4px solid var(--success); }
+        .warning { background: #fff9ee; color: var(--warning); border-left: 4px solid var(--warning); }
+        .info { background: #eef5ff; color: var(--primary); border-left: 4px solid var(--primary); }
+        button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 0.5rem;
+            transition: all 0.3s;
+        }
+        button:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+        #result-container {
+            margin-top: 2rem;
+            display: none;
+        }
+        #resultImage {
+            max-width: 100%;
+            border: 2px solid var(--primary);
+            border-radius: 4px;
+            margin-top: 1rem;
+        }
+        .comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .image-preview {
+            border: 1px solid #ddd;
+            padding: 0.5rem;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Phot.AI Image Enhancer</h1>
+    <p>Enhance your images to 2K resolution using Phot.AI's advanced technology</p>
+
+    <div class="upload-container" id="dropZone">
+        <input type="file" id="imageInput" accept="image/jpeg, image/png, image/webp" style="display:none">
+        <button id="selectBtn">Select Image</button>
+        <p>or drag and drop image here</p>
+        <p class="file-requirements">(JPEG, PNG, or WebP, 512×512px to 1440×1440px)</p>
+    </div>
+
+    <div id="status" class="info">Select an image to begin enhancement</div>
+
+    <div class="comparison" id="comparison-container" style="display:none">
+        <div class="image-preview">
+            <h3>Original</h3>
+            <img id="originalImage" style="max-width:100%">
+        </div>
+        <div class="image-preview">
+            <h3>Enhanced</h3>
+            <img id="enhancedImage" style="max-width:100%">
+        </div>
+    </div>
+
+    <div id="result-container">
+        <button id="downloadBtn">Download Enhanced Image</button>
+        <div id="credit-info" style="margin-top:1rem; font-size:0.9rem;"></div>
+    </div>
+
+    <script>
+        // Configuration
+        const PHOTAI_API_KEY = "664de315e68723a325d373c1_f3b9351b0a61f9329e84_apyhitools";
+        const API_ENDPOINT = "https://prodapi.phot.ai/external/api/v3/user_activity/create-enhancer-2k";
+        
+        // DOM Elements
+        const imageInput = document.getElementById('imageInput');
+        const selectBtn = document.getElementById('selectBtn');
+        const dropZone = document.getElementById('dropZone');
+        const statusEl = document.getElementById('status');
+        const comparisonContainer = document.getElementById('comparison-container');
+        const originalImage = document.getElementById('originalImage');
+        const enhancedImage = document.getElementById('enhancedImage');
+        const resultContainer = document.getElementById('result-container');
+        const downloadBtn = document.getElementById('downloadBtn');
+        const creditInfo = document.getElementById('credit-info');
+
+        let currentFile = null;
+        let enhancedImageUrl = null;
+        let remainingCredits = null;
+
+        // Event Listeners
+        selectBtn.addEventListener('click', () => imageInput.click());
+        imageInput.addEventListener('change', handleImageUpload);
+        downloadBtn.addEventListener('click', downloadEnhancedImage);
+        
+        // Drag and drop functionality
+        dropZone.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '#f5f0ff';
+        });
+        
+        dropZone.addEventListener('dragleave', () => {
+            dropZone.style.backgroundColor = '';
+        });
+        
+        dropZone.addEventListener('drop', (e) => {
+            e.preventDefault();
+            dropZone.style.backgroundColor = '';
+            if (e.dataTransfer.files.length) {
+                imageInput.files = e.dataTransfer.files;
+                handleImageUpload({ target: imageInput });
+            }
+        });
+
+        // Main function to handle image upload
+        async function handleImageUpload(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            
+            currentFile = file;
+            
+            // Validate file
+            if (!file.type.match(/image\/(jpeg|png|webp)/)) {
+                showStatus("Please select a JPEG, PNG, or WebP image", "error");
+                return;
+            }
+            
+            // Check image dimensions
+            const img = new Image();
+            img.onload = function() {
+                const width = this.width;
+                const height = this.height;
+                
+                if (width < 512 || height < 512) {
+                    showStatus("Image must be at least 512×512 pixels", "error");
+                    return;
+                }
+                
+                if (width > 1440 || height > 1440) {
+                    showStatus("Image cannot exceed 1440×1440 pixels", "error");
+                    return;
+                }
+                
+                // Display original image
+                originalImage.src = URL.createObjectURL(file);
+                comparisonContainer.style.display = 'grid';
+                
+                // Start enhancement process
+                enhanceImage(file);
+            };
+            img.src = URL.createObjectURL(file);
+        }
+
+        // Function to enhance image using Phot.AI API
+        async function enhanceImage(file) {
+            showStatus("Uploading image to Phot.AI...", "info");
+            
+            try {
+                // First upload the image to a temporary location
+                const imageUrl = await uploadImage(file);
+                
+                // Then call the enhancement API
+                showStatus("Enhancing image...", "info");
+                const response = await callEnhanceAPI(imageUrl);
+                
+                // Handle the response
+                enhancedImageUrl = response.data["2k"].url;
+                remainingCredits = response.remainingCredits;
+                
+                // Display enhanced image
+                enhancedImage.src = enhancedImageUrl;
+                resultContainer.style.display = 'block';
+                creditInfo.textContent = `Remaining credits: ${remainingCredits}`;
+                
+                showStatus("Image enhanced successfully!", "success");
+                
+            } catch (error) {
+                console.error("Enhancement failed:", error);
+                showStatus(`Enhancement failed: ${error.message}`, "error");
+            }
+        }
+
+        // Function to upload image to a temporary URL
+        async function uploadImage(file) {
+            // In a real implementation, you would upload to your own server or S3
+            // For demo purposes, we'll use a client-side URL
+            return new Promise((resolve) => {
+                const reader = new FileReader();
+                reader.onload = (e) => resolve(e.target.result);
+                reader.readAsDataURL(file);
+            });
+        }
+
+        // Function to call Phot.AI Enhance API
+        async function callEnhanceAPI(imageUrl) {
+            const response = await fetch(API_ENDPOINT, {
+                method: 'POST',
+                headers: {
+                    'x-api-key': '',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    source_url: imageUrl,
+                    exposure_fix: false
+                })
+            });
+            
+            if (!response.ok) {
+                const error = await response.json().catch(() => ({}));
+                throw new Error(error.message || `API request failed with status ${response.status}`);
+            }
+            
+            return await response.json();
+        }
+
+        // Function to download enhanced image
+        function downloadEnhancedImage() {
+            if (!enhancedImageUrl) return;
+            
+            const a = document.createElement('a');
+            a.href = enhancedImageUrl;
+            a.download = `enhanced_${currentFile.name.replace(/\.[^/.]+$/, "")}.webp`;
+            a.click();
+        }
+
+        // Helper function to show status messages
+        function showStatus(message, type) {
+            statusEl.textContent = message;
+            statusEl.className = type;
+            statusEl.style.display = 'block';
+        }
+
+        // Test API connection on load
+        async function testAPIConnection() {
+            try {
+                const test = await fetch(API_ENDPOINT, {
+                    method: 'OPTIONS',
+                    headers: { 'x-api-key': '68093b432c11df6ffa31e185_587cc02bd8380f979b9a_apyhitools' }
+                });
+                
+                if (!test.ok) {
+                    showStatus("Unable to connect to Phot.AI API", "warning");
+                }
+            } catch (error) {
+                console.error("API test failed:", error);
+                showStatus("API connection test failed", "warning");
+            }
+        }
+        
+        testAPIConnection();
+    </script>
+</body>
+</html>
