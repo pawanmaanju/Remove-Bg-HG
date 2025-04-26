@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>HG Tools - AI Chat Assistant</title>
+    <title>HG Tools - Professional Image Tools</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -128,200 +128,6 @@
         margin: 0 auto;
       }
 
-      /* AI Chat Section */
-      .ai-chat-section {
-        margin: 2rem 0;
-        background: white;
-        border-radius: 12px;
-        box-shadow: var(--shadow);
-        overflow: hidden;
-      }
-
-      .chat-container {
-        display: flex;
-        flex-direction: column;
-        height: 600px;
-      }
-
-      .chat-header {
-        background: linear-gradient(135deg, var(--primary-color), #0d5c4a);
-        color: white;
-        padding: 1.5rem;
-        text-align: center;
-      }
-
-      .chat-header h2 {
-        font-size: 1.5rem;
-        margin-bottom: 0.5rem;
-      }
-
-      .chat-header p {
-        font-size: 0.9rem;
-        opacity: 0.9;
-      }
-
-      .chat-messages {
-        flex: 1;
-        padding: 1.5rem;
-        overflow-y: auto;
-        background-color: #f5f7fa;
-      }
-
-      .message {
-        margin-bottom: 1rem;
-        display: flex;
-        flex-direction: column;
-      }
-
-      .message-user {
-        align-items: flex-end;
-      }
-
-      .message-ai {
-        align-items: flex-start;
-      }
-
-      .message-content {
-        max-width: 80%;
-        padding: 0.8rem 1.2rem;
-        border-radius: 18px;
-        margin-bottom: 0.3rem;
-        position: relative;
-        word-wrap: break-word;
-      }
-
-      .user-message {
-        background-color: var(--primary-color);
-        color: white;
-        border-bottom-right-radius: 5px;
-      }
-
-      .ai-message {
-        background-color: white;
-        color: var(--text-color);
-        border: 1px solid #e1e4e8;
-        border-bottom-left-radius: 5px;
-        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-      }
-
-      .message-time {
-        font-size: 0.7rem;
-        color: var(--text-light);
-      }
-
-      .chat-input-container {
-        display: flex;
-        padding: 1rem;
-        background-color: white;
-        border-top: 1px solid #e1e4e8;
-      }
-
-      .chat-input {
-        flex: 1;
-        padding: 0.8rem 1.2rem;
-        border: 1px solid #e1e4e8;
-        border-radius: 24px;
-        font-family: "Poppins", sans-serif;
-        resize: none;
-        outline: none;
-        transition: var(--transition);
-      }
-
-      .chat-input:focus {
-        border-color: var(--primary-color);
-        box-shadow: 0 0 0 2px rgba(17, 121, 100, 0.2);
-      }
-
-      .send-button {
-        margin-left: 1rem;
-        padding: 0 1.5rem;
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        border-radius: 24px;
-        cursor: pointer;
-        transition: var(--transition);
-      }
-
-      .send-button:hover {
-        background-color: #0d5c4a;
-      }
-
-      .typing-indicator {
-        display: flex;
-        padding: 0.5rem 1rem;
-        align-items: center;
-      }
-
-      .typing-dot {
-        width: 8px;
-        height: 8px;
-        background-color: #999;
-        border-radius: 50%;
-        margin: 0 2px;
-        animation: typingAnimation 1.4s infinite ease-in-out;
-      }
-
-      .typing-dot:nth-child(1) {
-        animation-delay: 0s;
-      }
-
-      .typing-dot:nth-child(2) {
-        animation-delay: 0.2s;
-      }
-
-      .typing-dot:nth-child(3) {
-        animation-delay: 0.4s;
-      }
-
-      @keyframes typingAnimation {
-        0%,
-        60%,
-        100% {
-          transform: translateY(0);
-        }
-        30% {
-          transform: translateY(-5px);
-        }
-      }
-
-      .features-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        gap: 2rem;
-        margin: 3rem 0;
-      }
-
-      .feature-card {
-        background: white;
-        border-radius: 12px;
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        transition: var(--transition);
-      }
-
-      .feature-card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-      }
-
-      .feature-icon {
-        font-size: 2.5rem;
-        color: var(--primary-color);
-        margin-bottom: 1rem;
-      }
-
-      .feature-title {
-        font-size: 1.2rem;
-        margin-bottom: 0.8rem;
-        color: var(--dark-color);
-      }
-
-      .feature-description {
-        font-size: 0.95rem;
-        color: var(--text-light);
-      }
-
       /* Section heading */
       .section-heading {
         text-align: center;
@@ -359,6 +165,243 @@
         );
         margin: 0 auto;
         border-radius: 2px;
+      }
+
+      /* Tools grid */
+      .tools-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      /* Card styles */
+      .card {
+        background: white;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .card-media {
+        position: relative;
+        overflow: hidden;
+        height: 200px;
+      }
+
+      .card video,
+      .card img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        transition: var(--transition);
+      }
+
+      .card:hover video,
+      .card:hover img {
+        transform: scale(1.05);
+      }
+
+      .rainbow-bottom {
+        position: relative;
+      }
+
+      .rainbow-bottom::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(
+          90deg,
+          red,
+          orange,
+          yellow,
+          green,
+          blue,
+          indigo,
+          violet
+        );
+        background-size: 200% 100%;
+        animation: rainbowAnim 3s linear infinite;
+      }
+
+      @keyframes rainbowAnim {
+        0% {
+          background-position: 0% 50%;
+        }
+        100% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .card-content {
+        padding: 1.5rem;
+      }
+
+      .card-title {
+        font-size: 1.3rem;
+        margin-bottom: 0.75rem;
+        color: var(--dark-color);
+        font-weight: 600;
+      }
+
+      .card-description {
+        font-size: 0.95rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+      }
+
+      .card-button {
+        display: inline-block;
+        padding: 0.6rem 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        border: 2px solid var(--primary-color);
+      }
+
+      .card-button:hover {
+        background-color: transparent;
+        color: var(--primary-color);
+      }
+
+      /* Features grid for AI section */
+      .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin: 3rem 0;
+      }
+
+      .feature-card {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        text-align: center;
+      }
+
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      }
+
+      .feature-icon {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+
+      .feature-title {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .feature-description {
+        font-size: 0.95rem;
+        color: var(--text-light);
+      }
+
+      /* Tool upload area */
+      .upload-area {
+        background: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 3rem 0;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .upload-container {
+        border: 2px dashed #ccc;
+        border-radius: 8px;
+        padding: 3rem 2rem;
+        margin: 1.5rem 0;
+        transition: var(--transition);
+        cursor: pointer;
+      }
+
+      .upload-container:hover {
+        border-color: var(--primary-color);
+        background: rgba(17, 121, 100, 0.05);
+      }
+
+      .upload-icon {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+      }
+
+      .upload-text {
+        margin-bottom: 1rem;
+      }
+
+      .upload-btn {
+        display: inline-block;
+        padding: 0.8rem 2rem;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        border: none;
+        cursor: pointer;
+        font-family: "Poppins", sans-serif;
+        font-size: 1rem;
+      }
+
+      .upload-btn:hover {
+        background-color: #0e6a56;
+      }
+
+      /* Before/After comparison */
+      .comparison-container {
+        margin: 3rem 0;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: var(--shadow);
+      }
+
+      .comparison-title {
+        display: flex;
+        justify-content: space-between;
+        background: var(--dark-color);
+        color: white;
+        padding: 1rem;
+      }
+
+      .comparison-images {
+        display: flex;
+        position: relative;
+        height: 400px;
+      }
+
+      .comparison-image {
+        width: 50%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .comparison-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
 
       /* ========== FOOTER ========== */
@@ -650,12 +693,14 @@
           font-size: 2rem;
         }
 
-        .chat-container {
-          height: 500px;
+        .comparison-images {
+          flex-direction: column;
+          height: auto;
         }
 
-        .message-content {
-          max-width: 90%;
+        .comparison-image {
+          width: 100%;
+          height: 300px;
         }
       }
 
@@ -667,32 +712,7 @@
         .footer-content {
           grid-template-columns: 1fr;
         }
-
-        .chat-input-container {
-          flex-direction: column;
-        }
-
-        .send-button {
-          margin-left: 0;
-          margin-top: 1rem;
-          width: 100%;
-        }
       }
-
-      /* payment */
-       /* Payment Section */
-       .payment {
-        margin: 2rem 0;
-      }
-
-      .payment img {
-        width: 100%;
-        max-width: 20rem;
-        border-radius: 8px;
-        margin: 1rem auto;
-        box-shadow: var(--shadow);
-      }
-
     </style>
   </head>
   <body>
@@ -705,11 +725,11 @@
           <span class="line line3"></span>
         </div>
         <ul class="menu-items">
-          <li><a href="../index.html">Home</a></li>
+          <li><a href="index.html">Home</a></li>
           <li><a href="/page/about.html">About</a></li>
-          <li><a href="/tool/tool.html">Tools</a></li>
+          <li><a href="/tool/tool.html" class="active">Tools</a></li>
           <li><a href="#">Learning</a></li>
-          <li><a href="/Tools/removebg.html">Remove Bg</a></li>
+          <li><a href="removebg.html">Remove Bg</a></li>
           <li><a href="/page/contact.html">Contact</a></li>
         </ul>
         <img class="logo" src="Img/hgic.png" alt="HG Logo" />
@@ -717,45 +737,100 @@
     </nav>
 
     <div class="main-content">
-      <!-- AI Chat Section -->
+      <!-- Image Tools Section -->
       <div class="section-heading">
-        <h1>AI Chat Assistant</h1>
-        <span class="subtitle">Powered by Gemini AI</span>
+        <h1>Professional Image Tools</h1>
+        <span class="subtitle">Enhance Your Visual Content</span>
       </div>
 
-      <div class="ai-chat-section">
-        <div class="chat-container">
-          <div class="chat-header">
-            <h2>Ask Me Anything</h2>
-            <p>Get instant answers to your questions with our AI assistant</p>
+      <div class="tools-grid">
+        <!-- Background Removal Tool -->
+        <div class="card">
+          <div class="card-media rainbow-bottom">
+            <video autoplay muted loop>
+              <source src="video/removebg.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
           </div>
-
-          <div class="chat-messages" id="chat-messages">
-            <!-- Messages will appear here -->
-            <div class="message message-ai">
-              <div class="message-content ai-message">
-                Hello! I'm your AI assistant powered by Gemini. How can I help
-                you today?
-              </div>
-              <div class="message-time">Just now</div>
-            </div>
+          <div class="card-content">
+            <h3 class="card-title">Background Removal</h3>
+            <p class="card-description">
+              Remove backgrounds from images automatically with AI-powered
+              precision. Perfect for product photos, portraits, and graphic
+              design.
+            </p>
+            <a href="removebg.html" class="card-button">Try It Now</a>
           </div>
+        </div>
 
-          <div class="chat-input-container">
-            <textarea
-              class="chat-input"
-              id="user-input"
-              placeholder="Type your question here..."
-              rows="1"
-            ></textarea>
-            <button class="send-button" id="send-button">
-              <i class="fas fa-paper-plane"></i>
-            </button>
+        <!-- Image Enhancer Tool -->
+        <div class="card">
+          <div class="card-media">
+            <img src="Img/enhancer-demo.jpg" alt="Image enhancer example" />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">AI Image Enhancer</h3>
+            <p class="card-description">
+              Transform low-quality images into high-resolution masterpieces.
+              Fix blurry, pixelated, or damaged photos with our advanced AI.
+            </p>
+            <a href="#" class="card-button">Enhance Now</a>
+          </div>
+        </div>
+
+        <!-- Color Correction Tool -->
+        <div class="card">
+          <div class="card-media">
+            <img
+              src="Img/color-correction-demo.jpg"
+              alt="Color correction example"
+            />
+          </div>
+          <div class="card-content">
+            <h3 class="card-title">Color Correction</h3>
+            <p class="card-description">
+              Automatically adjust colors, contrast, and brightness to make your
+              photos look professional with one click.
+            </p>
+            <a href="#" class="card-button">Correct Colors</a>
           </div>
         </div>
       </div>
 
-      <!-- Features Section -->
+      <!-- Upload Area -->
+      <div class="upload-area">
+        <h2>Upload Your Image</h2>
+        <p>Select an image to process with our tools</p>
+
+        <div class="upload-container">
+          <div class="upload-icon">
+            <i class="fas fa-cloud-upload-alt"></i>
+          </div>
+          <h3 class="upload-text">Drag & Drop your files here</h3>
+          <p>or</p>
+          <button class="upload-btn">Browse Files</button>
+        </div>
+
+        <p>Supported formats: JPG, PNG, WEBP (Max 10MB)</p>
+      </div>
+
+      <!-- Before/After Comparison -->
+      <div class="comparison-container">
+        <div class="comparison-title">
+          <span>Before</span>
+          <span>After</span>
+        </div>
+        <div class="comparison-images">
+          <div class="comparison-image">
+            <img src="Img/before-enhance.jpg" alt="Before enhancement" />
+          </div>
+          <div class="comparison-image">
+            <img src="Img/after-enhance.jpg" alt="After enhancement" />
+          </div>
+        </div>
+      </div>
+
+      <!-- AI Assistant Section -->
       <div class="section-heading">
         <h1>AI Assistant Features</h1>
         <span class="subtitle">What You Can Do</span>
@@ -796,22 +871,65 @@
         </div>
       </div>
 
-      <!-- Payment Section -->
-      <div class="payment">
-        <h3>Support Our Development</h3>
-        <p>Your contribution helps us improve our tools</p>
-        <form>
-          <script
-            src="https://checkout.razorpay.com/v1/payment-button.js"
-            data-payment_button_id="pl_Q5vYHIdfsJEXxx"
-            async
-          ></script>
-        </form>
-        <p>Or scan this QR code to donate</p>
-        <img src="/Img/PKNETWORKQR.png" alt="Payment QR Code" />
+      <!-- AI Chat Interface -->
+      <div class="upload-area">
+        <h2>AI Assistant</h2>
+        <p>Ask our AI anything about image editing or other topics</p>
+
+        <div
+          style="
+            background: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-top: 1.5rem;
+            text-align: left;
+          "
+        >
+          <div
+            id="chat-messages"
+            style="
+              height: 300px;
+              overflow-y: auto;
+              margin-bottom: 1rem;
+              border-bottom: 1px solid #eee;
+              padding-bottom: 1rem;
+            "
+          >
+            <!-- Chat messages will appear here -->
+            <div
+              style="
+                background: #f5f5f5;
+                padding: 0.8rem;
+                border-radius: 8px;
+                margin-bottom: 0.5rem;
+                max-width: 80%;
+                display: inline-block;
+              "
+            >
+              Hello! I'm your AI assistant. How can I help you with image
+              editing today?
+            </div>
+          </div>
+
+          <div style="display: flex; gap: 0.5rem">
+            <input
+              type="text"
+              placeholder="Type your question..."
+              style="
+                flex: 1;
+                padding: 0.8rem;
+                border: 1px solid #ddd;
+                border-radius: 30px;
+                font-family: 'Poppins', sans-serif;
+              "
+            />
+            <button class="upload-btn" style="padding: 0.8rem 1.5rem">
+              Send
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 
     <!-- Footer -->
     <footer>
@@ -821,10 +939,10 @@
           <ul>
             <li><a href="index.html">Home</a></li>
             <li><a href="#">About Us</a></li>
-            <li><a href="#">Tools</a></li>
+            <li><a href="/tool/tool.html">Tools</a></li>
             <li><a href="#">Tutorials</a></li>
             <li><a href="removebg.html">Remove Background</a></li>
-            <li><a href="ai-enhance.html">AI Enhance</a></li>
+            <li><a href="#">AI Enhance</a></li>
           </ul>
         </div>
 
@@ -905,201 +1023,68 @@
     </footer>
 
     <script>
-      // Updated chat functionality with formatted responses
-      const chatMessages = document.getElementById("chat-messages");
-      const userInput = document.getElementById("user-input");
-      const sendButton = document.getElementById("send-button");
-
-      // Auto-resize textarea
-      userInput.addEventListener("input", function () {
-        this.style.height = "auto";
-        this.style.height = this.scrollHeight + "px";
-      });
-
-      // Function to add a message to the chat
-      function addMessage(content, isUser) {
-        const messageDiv = document.createElement("div");
-        messageDiv.className = `message message-${isUser ? "user" : "ai"}`;
-
-        const messageContent = document.createElement("div");
-        messageContent.className = `message-content ${
-          isUser ? "user-message" : "ai-message"
-        }`;
-
-        // Check if content is already HTML or plain text
-        if (/<\/?[a-z][\s\S]*>/i.test(content)) {
-          messageContent.innerHTML = content;
-        } else {
-          // Format plain text with basic markdown-like formatting
-          const formattedContent = formatTextResponse(content);
-          messageContent.innerHTML = formattedContent;
-        }
-
-        const timeDiv = document.createElement("div");
-        timeDiv.className = "message-time";
-        const now = new Date();
-        timeDiv.textContent = now.toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-
-        messageDiv.appendChild(messageContent);
-        messageDiv.appendChild(timeDiv);
-        chatMessages.appendChild(messageDiv);
-
-        // Scroll to bottom
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }
-
-      // Function to format plain text responses
-      function formatTextResponse(text) {
-        // Convert markdown-like syntax to HTML
-        let formatted = text
-          // Bold text
-          .replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>")
-          // Italic text
-          .replace(/\*(.*?)\*/g, "<em>$1</em>")
-          // Headers
-          .replace(/^#\s(.*$)/gm, "<h3>$1</h3>")
-          .replace(/^##\s(.*$)/gm, "<h4>$1</h4>")
-          // Lists
-          .replace(/^\*\s(.*$)/gm, "<li>$1</li>")
-          // Line breaks
-          .replace(/\n/g, "<br>");
-
-        // Wrap lists in ul tags
-        formatted = formatted.replace(/<li>.*?<\/li>/g, function (match) {
-          if (!formatted.includes("<ul>")) {
-            return "<ul>" + match;
-          } else if (!formatted.includes("</ul>")) {
-            return match + "</ul>";
-          }
-          return match;
-        });
-
-        return formatted;
-      }
-
-      // Function to show typing indicator
-      function showTypingIndicator() {
-        const typingDiv = document.createElement("div");
-        typingDiv.className = "typing-indicator";
-        typingDiv.id = "typing-indicator";
-
-        typingDiv.innerHTML = `
-    <div class="typing-dot"></div>
-    <div class="typing-dot"></div>
-    <div class="typing-dot"></div>
-    <span style="margin-left: 10px;">AI is typing...</span>
-  `;
-
-        chatMessages.appendChild(typingDiv);
-        chatMessages.scrollTop = chatMessages.scrollHeight;
-      }
-
-      // Function to hide typing indicator
-      function hideTypingIndicator() {
-        const typingIndicator = document.getElementById("typing-indicator");
-        if (typingIndicator) {
-          typingIndicator.remove();
-        }
-      }
-
-      // Function to send message to Gemini API
-      async function sendToGemini(message) {
-        const API_KEY = "AIzaSyDAreXlO85vsYgidKP6_gAAPJSpG9kMWsI";
-        const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-pro:generateContent?key=${API_KEY}`;
-
-        try {
-          showTypingIndicator();
-
-          const response = await fetch(API_URL, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              contents: [
-                {
-                  parts: [
-                    {
-                      text: message,
-                    },
-                  ],
-                },
-              ],
-              safetySettings: [
-                {
-                  category: "HARM_CATEGORY_DANGEROUS_CONTENT",
-                  threshold: "BLOCK_ONLY_HIGH",
-                },
-              ],
-              generationConfig: {
-                temperature: 0.9,
-                topP: 1,
-                topK: 32,
-                maxOutputTokens: 2048,
-              },
-            }),
+      // Animation for cards when they come into view
+      const cards = document.querySelectorAll(".card, .feature-card");
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
           });
+        },
+        { threshold: 0.1 }
+      );
 
-          const data = await response.json();
-          hideTypingIndicator();
-
-          if (data.candidates && data.candidates[0]?.content?.parts) {
-            const aiResponse = data.candidates[0].content.parts[0].text;
-            addMessage(aiResponse, false);
-          } else if (data.error) {
-            addMessage(`API Error: ${data.error.message}`, false);
-          } else {
-            addMessage(
-              "Sorry, I couldn't process that request. Please try again.",
-              false
-            );
-            console.log("API Response:", data);
-          }
-        } catch (error) {
-          hideTypingIndicator();
-          addMessage(
-            "Error connecting to the AI service. Please try again later.",
-            false
-          );
-          console.error("API Error:", error);
-        }
-      }
-
-      // Handle send button click
-      sendButton.addEventListener("click", function () {
-        const message = userInput.value.trim();
-        if (message) {
-          addMessage(message, true);
-          userInput.value = "";
-          userInput.style.height = "auto";
-          sendToGemini(message);
-        }
+      cards.forEach((card) => {
+        card.style.opacity = 0;
+        card.style.transform = "translateY(20px)";
+        card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+        observer.observe(card);
       });
 
-      // Handle Enter key press
-      userInput.addEventListener("keypress", function (e) {
-        if (e.key === "Enter" && !e.shiftKey) {
-          e.preventDefault();
-          sendButton.click();
-        }
-      });
-      // Initialize chat with welcome message
-      window.addEventListener("load", function () {
-        // Add animation to feature cards
-        const featureCards = document.querySelectorAll(".feature-card");
-        featureCards.forEach((card, index) => {
-          card.style.opacity = "0";
-          card.style.transform = "translateY(20px)";
-          card.style.transition = "opacity 0.5s ease, transform 0.5s ease";
+      // Simple chat simulation
+      const chatInput = document.querySelector("#chat-messages + div input");
+      const chatButton = document.querySelector("#chat-messages + div button");
+      const chatMessages = document.getElementById("chat-messages");
 
+      chatButton.addEventListener("click", () => {
+        if (chatInput.value.trim() !== "") {
+          // Add user message
+          const userMessage = document.createElement("div");
+          userMessage.style.textAlign = "right";
+          userMessage.style.marginLeft = "auto";
+          userMessage.style.marginRight = "0";
+          userMessage.innerHTML = `
+            <div style="background: var(--primary-color); color: white; padding: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem; max-width: 80%; display: inline-block;">
+              ${chatInput.value}
+            </div>
+          `;
+          chatMessages.appendChild(userMessage);
+
+          // Add AI response (simulated)
           setTimeout(() => {
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, 100 + index * 100);
-        });
+            const aiMessage = document.createElement("div");
+            aiMessage.innerHTML = `
+              <div style="background: #f5f5f5; padding: 0.8rem; border-radius: 8px; margin-bottom: 0.5rem; max-width: 80%; display: inline-block;">
+               this bot on maintance mode please  <a href="https://hindustangraphics.vercel.app/learner/aibot.html">visit here</a>.
+              </div>
+            `;
+            chatMessages.appendChild(aiMessage);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+          }, 1000);
+
+          chatInput.value = "";
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+      });
+
+      // Allow pressing Enter to send message
+      chatInput.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          chatButton.click();
+        }
       });
     </script>
   </body>

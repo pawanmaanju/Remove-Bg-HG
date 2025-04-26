@@ -483,6 +483,45 @@
           grid-template-columns: 1fr;
         }
       }
+
+      css
+
+   /* Payment section */
+      .payment-section {
+        background-color: white;
+        border-radius: 12px;
+        padding: 2rem;
+        margin: 4rem 0;
+        box-shadow: var(--shadow);
+        text-align: center;
+      }
+
+      .payment-section h2 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+      }
+
+      .payment-section h3 {
+        font-size: 1.1rem;
+        color: var(--text-light);
+        margin-bottom: 1.5rem;
+        font-weight: 500;
+      }
+
+      .payment-qr {
+        max-width: 250px;
+        margin: 1.5rem auto;
+        border: 1px solid #eee;
+        padding: 10px;
+        border-radius: 8px;
+      }
+
+      .payment-qr img {
+        width: 100%;
+        height: auto;
+      }
+
     </style>
   </head>
   <body>
@@ -528,20 +567,29 @@
         <div class="video">
           <video src="/video/bgremove.mp4" autoplay loop muted></video>
         </div>
-        <div class="payment">
-          <h3>Support Our Development</h3>
-          <p>Your contribution helps us improve our tools</p>
-          <form>
-            <script
-              src="https://checkout.razorpay.com/v1/payment-button.js"
-              data-payment_button_id="pl_Q5vYHIdfsJEXxx"
-              async
-            ></script>
-          </form>
-          <p>Or scan this QR code to donate</p>
-          <img src="/Img/PKNETWORKQR.png" alt="Payment QR Code" />
-        </div>
-      </div>
+   
+ <!-- Payment Section -->
+ <div class="payment-section">
+  <h2>Support Our Development</h2>
+  <h3>Your contribution helps us improve our tools</h3>
+
+  <form>
+    <script
+      src="https://checkout.razorpay.com/v1/payment-button.js"
+      data-payment_button_id="pl_Q5vYHIdfsJEXxx"
+      async
+    ></script>
+  </form>
+
+  <h3>Or scan this QR code to donate</h3>
+  <div class="payment-qr">
+    <img src="/Img/PKNETWORKQR.png" alt="Payment QR Code" />
+  </div>
+</div>
+</div>
+
+
+
     </div>
 
     <footer>
