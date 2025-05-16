@@ -11,7 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
     <style>
       :root {
         --primary-color: #117964;
@@ -179,7 +182,8 @@
 
       .profile-image {
         flex: 1;
-        min-width: 300px;
+        min-width: 1rem;
+        height: 500px;
         border-radius: 12px;
         overflow: hidden;
         box-shadow: var(--shadow);
@@ -292,7 +296,7 @@
       }
 
       .timeline::before {
-        content: '';
+        content: "";
         position: absolute;
         width: 2px;
         background-color: var(--primary-color);
@@ -339,7 +343,7 @@
       }
 
       .timeline-item::after {
-        content: '';
+        content: "";
         position: absolute;
         width: 20px;
         height: 20px;
@@ -439,7 +443,7 @@
           font-size: 1.5rem;
         }
       }
-     
+
       /* Responsive styles */
       @media (max-width: 698px) {
         .navbar-container {
@@ -475,6 +479,7 @@
           opacity: 0;
           cursor: pointer;
         }
+        /* .profile-image  */
 
         .navbar-container .hamburger-lines {
           display: block;
@@ -563,7 +568,6 @@
 
         .slide img {
           height: 100%;
-
         }
 
         .section-heading h1 {
@@ -772,9 +776,9 @@
         <ul class="menu-items">
           <li><a href="/index.html">Home</a></li>
           <li><a href="/page/about.html">About</a></li>
-          <li><a href="/tools.html">Tools</a></li>
-          <li><a href="#">Learning</a></li>
-          <li><a href="/removebg.html" class="active">Remove Bg</a></li>
+          <li><a href="/tools.html" alt="Page Not Found">Tools</a></li>
+          <li><a href="/Learning.html">Learning</a></li>
+          <li><a href="/Tools/removebg.html" class="active">Remove Bg</a></li>
           <li><a href="/page/contact.html">Contact</a></li>
         </ul>
         <img class="logo" src="/Img/hgic.png" alt="HG Logo" />
@@ -790,16 +794,35 @@
 
         <div class="profile-container">
           <div class="profile-image">
-            <img src="/Img/myownimg.png" alt="Pawan Bishnoi - Hindustan Graphics Creator">
+            <img
+              src="/Img/myownimg.png"
+              alt="Pawan Bishnoi - Hindustan Graphics Creator"
+            />
           </div>
           <div class="profile-content">
             <h2>Hello, I'm Pawan Bishnoi</h2>
-            <p>I'm a passionate web developer and designer with expertise in creating powerful online tools that make digital tasks easier for everyone. My journey in web development began several years ago when I discovered my love for solving problems through code.</p>
-            
-            <p>HG was born out of my desire to create simple yet powerful solutions for common challenges faced by content creators, marketers, and everyday internet users. I believe technology should be accessible and helpful to everyone, regardless of their technical background.</p>
-            
-            <p>When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or teaching web development to aspiring programmers. I'm constantly learning and pushing myself to create better tools that serve real needs.</p>
-            
+            <p>
+              I'm a passionate web developer and designer with expertise in
+              creating powerful online tools that make digital tasks easier for
+              everyone. My journey in web development began several years ago
+              when I discovered my love for solving problems through code.
+            </p>
+
+            <p>
+              HG was born out of my desire to create simple yet powerful
+              solutions for common challenges faced by content creators,
+              marketers, and everyday internet users. I believe technology
+              should be accessible and helpful to everyone, regardless of their
+              technical background.
+            </p>
+
+            <p>
+              When I'm not coding, you can find me exploring new technologies,
+              contributing to open-source projects, or teaching web development
+              to aspiring programmers. I'm constantly learning and pushing
+              myself to create better tools that serve real needs.
+            </p>
+
             <div class="skills-section">
               <h2>My Skills & Expertise</h2>
               <div class="skills-grid">
@@ -813,7 +836,7 @@
                     <li>RESTful APIs</li>
                   </ul>
                 </div>
-                
+
                 <div class="skill-card">
                   <h3><i class="fas fa-paint-brush"></i> Design & UX</h3>
                   <ul>
@@ -824,7 +847,7 @@
                     <li>Figma</li>
                   </ul>
                 </div>
-                
+
                 <div class="skill-card">
                   <h3><i class="fas fa-cogs"></i> Tools & Technologies</h3>
                   <ul>
@@ -847,31 +870,44 @@
               <div class="timeline-content">
                 <span class="date">2020 - Present</span>
                 <h4>Freelance Web Developer</h4>
-                <p>Building custom websites and web applications for clients worldwide, specializing in creative solutions and user-friendly interfaces.</p>
+                <p>
+                  Building custom websites and web applications for clients
+                  worldwide, specializing in creative solutions and
+                  user-friendly interfaces.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-content">
                 <span class="date">2019 - 2020</span>
                 <h4>Junior Frontend Developer</h4>
-                <p>Worked with a digital agency to create responsive websites and implement modern web technologies for diverse clients.</p>
+                <p>
+                  Worked with a digital agency to create responsive websites and
+                  implement modern web technologies for diverse clients.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-content">
                 <span class="date">2017 - 2019</span>
                 <h4>Web Development Student</h4>
-                <p>Self-taught through online courses, tutorials, and building personal projects to develop my skills in web development.</p>
+                <p>
+                  Self-taught through online courses, tutorials, and building
+                  personal projects to develop my skills in web development.
+                </p>
               </div>
             </div>
-            
+
             <div class="timeline-item">
               <div class="timeline-content">
                 <span class="date">2023</span>
                 <h4>Launched HG</h4>
-                <p>Created HG  to provide free, high-quality web tools that help people with their daily digital tasks and content creation.</p>
+                <p>
+                  Created HG to provide free, high-quality web tools that help
+                  people with their daily digital tasks and content creation.
+                </p>
               </div>
             </div>
           </div>
@@ -879,7 +915,11 @@
 
         <div class="contact-cta">
           <h2>Let's Work Together</h2>
-          <p>I'm always interested in hearing about new projects and opportunities. Whether you have a question or just want to say hi, I'll try my best to get back to you!</p>
+          <p>
+            I'm always interested in hearing about new projects and
+            opportunities. Whether you have a question or just want to say hi,
+            I'll try my best to get back to you!
+          </p>
           <a href="#" class="cta-button">Get In Touch</a>
         </div>
       </section>
@@ -929,20 +969,31 @@
           <ul>
             <li><i class="fas fa-envelope"></i> pkeditz29@gmail.com</li>
             <li><i class="fas fa-phone"></i> +62 831-3271-8264</li>
-            <li><i class="fas fa-map-marker-alt"></i> 12 B Road Sardharpura Jodhpur , Rajasthan , India</li>
+            <li>
+              <i class="fas fa-map-marker-alt"></i> 12 B Road Sardharpura
+              Jodhpur , Rajasthan , India
+            </li>
           </ul>
-          
+
           <div class="social-links">
             <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/pawanmaanju_29" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Facebook"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/pawanmaanju_29"
+              aria-label="Instagram"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="#" aria-label="LinkedIn"
+              ><i class="fab fa-linkedin-in"></i
+            ></a>
           </div>
 
           <div class="newsletter">
             <h4>Subscribe to our newsletter</h4>
             <form class="newsletter-form">
-              <input type="email" placeholder="Your email address" required>
+              <input type="email" placeholder="Your email address" required />
               <button type="submit"><i class="fas fa-paper-plane"></i></button>
             </form>
           </div>
@@ -967,21 +1018,24 @@
 
     <script>
       // Add animation to timeline items when they come into view
-      const timelineItems = document.querySelectorAll('.timeline-item');
-      
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = 1;
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, { threshold: 0.1 });
-      
-      timelineItems.forEach(item => {
+      const timelineItems = document.querySelectorAll(".timeline-item");
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.style.opacity = 1;
+              entry.target.style.transform = "translateY(0)";
+            }
+          });
+        },
+        { threshold: 0.1 }
+      );
+
+      timelineItems.forEach((item) => {
         item.style.opacity = 0;
-        item.style.transform = 'translateY(20px)';
-        item.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        item.style.transform = "translateY(20px)";
+        item.style.transition = "opacity 0.5s ease, transform 0.5s ease";
         observer.observe(item);
       });
     </script>
